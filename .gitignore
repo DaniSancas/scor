@@ -1,0 +1,16 @@
+/nbproject
+/.idea
+
+/web/bundles/
+/web/uploads/
+/app/config/parameters.yml
+/app/cache/*
+/app/logs/*
+/app/sessions/*
+/build/
+/vendor/
+/bin/
+/composer.phar
+/Capfile
+*deploy.rb
+*.*~
