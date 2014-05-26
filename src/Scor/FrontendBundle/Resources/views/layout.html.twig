@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block extra_metatags %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block default_stylesheets %}
+    <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/common/css/custom-bootstrap.css') }}" rel="stylesheet" />
+    {% block stylesheets %}{% endblock %}
+{% endblock %}
+  
+{% block default_javascripts %}
+    <script src="{{ asset('bundles/common/js/jquery-min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    {% block content %}{% endblock %}
+
+{% endblock %}
+    
