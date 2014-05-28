@@ -2,6 +2,9 @@ parameters:
 #    frontend.example.class: Scor\FrontendBundle\Example
 
 services:
-#    frontend.example:
-#        class: %frontend.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    scor.twig.controller_action_extension:
+        class: Scor\CommonBundle\Twig\Extension\ControllerActionExtension
+        calls:
+            - [setRequest, ["@?request="]]
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,10 @@
+Consulta desde el formulario de contacto de la web:
+
+Datos del contacto:
+Nombre: {{ nombre }}
+Apellidos: {{ (apellidos) ? apellidos : 'No especificados' }}
+Teléfono: {{ (telefono) ? telefono : 'No especificado' }}
+Email: {{ email }}
+
+Consulta:
+{{ consulta|raw }}
