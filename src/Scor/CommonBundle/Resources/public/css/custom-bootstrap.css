@@ -1,0 +1,47 @@
+.container{
+
+}
+
+#content {
+    padding-top: 75px;
+}
+
+.overflow{
+    overflow: auto;
+}
+
+.float-left{
+    float: left
+}
+
+.float-right{
+    float: right;
+}
+
+.margin-bottom{
+    margin-bottom: 20px;
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+
+.margin-right{
+    margin-right: 20px;
+}
+
+.margin-left{
+    margin-left: 20px;
+}
+
+.no-margin-top{
+    margin-top: 0px;
+}
+
+.no-margin-bottom{
+    margin-bottom: 0px;
+}
+
+.navbar-collapse {
+    max-height: none;
+}

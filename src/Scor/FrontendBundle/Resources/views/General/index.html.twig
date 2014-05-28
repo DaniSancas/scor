@@ -1,1 +1,66 @@
-S.C.O.R. Inicio
+{% extends "FrontendBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/common/css/marketing-bootstrap.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="overflow jumbotron">
+        <div class="float-left">
+            <img src="{{ asset('/bundles/common/images/logo.png') }}" alt="S.C.O.R. - Centro médico y psicotécnico">
+        </div>
+        <div class="float-left margin-left">
+            <h1 class="no-margin-top">«S.C.O.R.»</h1>
+            <h2>Centro médico y psicotécnico</h2>
+            <h3>Centro oficial de reconocimientos situado en Santutxu, Bilbao</h3>
+            <p>Todos los permisos y licencias. <a href="#" class="btn btn-success" role="button">Pide cita previa</a></p>
+        </div>
+    </div>
+
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{{ asset('/bundles/common/images/iconos/conducir.png') }}" alt="Carnet de conducir">
+                <h2>Carnet de conducir</h2>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <p><a class="btn btn-default" href="#" role="button">Más información &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="{{ asset('/bundles/common/images/iconos/armas.png') }}" alt="Permiso de armas">
+                <h2>Permiso de armas</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">Más información &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="{{ asset('/bundles/common/images/iconos/seguridad.png') }}" alt="Seguridad privada">
+                <h2>Seguridad privada</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">Más información &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{{ asset('/bundles/common/images/iconos/animales.png') }}" alt="Animales potencialmente peligrosos">
+                <h2>Animales pot. peligrosos</h2>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <p><a class="btn btn-default" href="#" role="button">Más información &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="{{ asset('/bundles/common/images/iconos/nautica.png') }}" alt="Náutica">
+                <h2>Náutica</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">Más información &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="{{ asset('/bundles/common/images/iconos/gruas.png') }}" alt="Grúas">
+                <h2>Grúas</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">Más información &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+    </div>
+
+
+{% endblock %}
