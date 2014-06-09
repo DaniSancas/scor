@@ -27,6 +27,16 @@ class PedirCitaType extends AbstractType
     );
 
     /**
+     * Array() de operaciones posibles para una cita
+     *
+     * @var array
+     */
+    private static $operaciones = array(
+        'obtencion'     => 'Obtención',
+        'renovacion'    => 'Renovación'
+    );
+
+    /**
     * Devuelve el array de licencias y permisos
     *
     * @return array
@@ -37,6 +47,18 @@ class PedirCitaType extends AbstractType
     }
 
     /**
+     * Devuelve el array de operaciones
+     *
+     * @return array
+     */
+    public static function getOperaciones()
+    {
+        return self::$operaciones;
+    }
+
+    /**
+     * Dada una clave del array de licencias y permisos, devuelve su texto
+     *
      * @param string $licenciaOPermiso
      * @return string|null
      */
@@ -45,6 +67,19 @@ class PedirCitaType extends AbstractType
         $array = self::getLicenciasYPermisos();
 
         return (array_key_exists($licenciaOPermiso, $array)) ? $array[$licenciaOPermiso] : null;
+    }
+
+    /**
+     * Dada una clave del array de operaciones, devuelve su texto
+     *
+     * @param string $operacion
+     * @return string|null
+     */
+    public static function getOperacion($operacion)
+    {
+        $array = self::getOperaciones();
+
+        return (array_key_exists($operacion, $array)) ? $array[$operacion] : null;
     }
 
 
@@ -78,6 +113,14 @@ class PedirCitaType extends AbstractType
                 'label' => 'Licencia o permiso',
                 'choices' => $this->getLicenciasYPermisos()
             ))
+            ->add('operacion', 'choice', array(
+                'choices' => $this->getOperaciones(),
+                'expanded' => true,
+                'label' => 'Operación',
+                'attr' => array(
+                    'class' => 'no-asterisco'
+                )
+            ))
             ->add('fecha', 'text', array(
                 'trim' => true
             ))
@@ -88,7 +131,10 @@ class PedirCitaType extends AbstractType
                 'required' => false
             ))
             ->add('aviso', 'checkbox', array(
-                'label' => "La fecha y hora elegidas son provisionales. Nos pondremos en contacto con usted para confirmar la cita. He leído el aviso y estoy conforme."
+                'label' => "La fecha y hora elegidas son orientativas. Nos pondremos en contacto con usted para confirmar la cita. Marque esta casilla si ha leído el aviso y está conforme.",
+                'label_attr' => array(
+                    'class' => 'no-asterisco'
+                )
             ))
         ;
     }
@@ -120,7 +166,10 @@ class PedirCitaType extends AbstractType
                 new Email(array('message' => 'Dirección de email inválida.'))
             ),
             'licencias_permisos' => array(
-                new NotBlank(array('message' => 'Debe elegir una licencia o permiso que quiera renovar o dar de alta.'))
+                new NotBlank(array('message' => 'Debe elegir una licencia o permiso que quiera obtener o renovar.'))
+            ),
+            'operacion' => array(
+                new NotBlank(array('message' => 'Debe especificar si quiere obtener o renovar la licencia o permiso.'))
             ),
             'fecha' => array(
                 new NotBlank(array('message' => 'Debe especificar una fecha para la cita.'))
@@ -130,7 +179,7 @@ class PedirCitaType extends AbstractType
             ),
             'observaciones' => array(),
             'aviso' => array(
-                new NotBlank(array('message' => 'Debe marcar el avisocomo leído, expresando así su conformidad.'))
+                new NotBlank(array('message' => 'Debe marcar el aviso como leído, expresando así su conformidad.'))
             ),
         ));
 

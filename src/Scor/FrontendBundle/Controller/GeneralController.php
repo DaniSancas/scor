@@ -51,6 +51,7 @@ class GeneralController extends Controller
                                 'email' => $form->get('email')->getData(),
                                 'telefono' => $form->get('telefono')->getData(),
                                 'licencia_permiso' => PedirCitaType::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
+                                'operacion' => PedirCitaType::getOperacion($form->get('operacion')->getData()),
                                 'fecha' => $form->get('fecha')->getData(),
                                 'hora' => $form->get('hora')->getData(),
                                 'observaciones' => $form->get('observaciones')->getData()
@@ -72,6 +73,7 @@ class GeneralController extends Controller
                                 'nombre' => $form->get('nombre')->getData(),
                                 'apellidos' => $form->get('apellidos')->getData(),
                                 'licencia_permiso' => PedirCitaType::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
+                                'operacion' => PedirCitaType::getOperacion($form->get('operacion')->getData()),
                                 'fecha' => $form->get('fecha')->getData(),
                                 'hora' => $form->get('hora')->getData()
                             )

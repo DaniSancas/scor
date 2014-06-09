@@ -87,8 +87,70 @@ form input[type="checkbox"].float-right{
     float: right;
 }
 
+.radio input[type="radio"] {
+    float: none;
+}
+
+.radio label{
+    margin-right: 35px;
+}
+
 span.asterisco-requerido{
     color: #F00;
+}
+
+a.img-background-120{
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+}
+
+a.img-conducir{
+    background-image: url('/bundles/common/images/iconos/conducir.png');
+}
+
+a.img-conducir:hover{
+    background-image: url('/bundles/common/images/iconos/conducir-hover.png');
+}
+
+a.img-armas{
+    background-image: url('/bundles/common/images/iconos/armas.png');
+}
+
+a.img-armas:hover{
+    background-image: url('/bundles/common/images/iconos/armas-hover.png');
+}
+
+a.img-seguridad{
+    background-image: url('/bundles/common/images/iconos/seguridad.png');
+}
+
+a.img-seguridad:hover{
+    background-image: url('/bundles/common/images/iconos/seguridad-hover.png');
+}
+
+a.img-animales{
+    background-image: url('/bundles/common/images/iconos/animales.png');
+}
+
+a.img-animales:hover{
+    background-image: url('/bundles/common/images/iconos/animales-hover.png');
+}
+
+a.img-nautica{
+    background-image: url('/bundles/common/images/iconos/nautica.png');
+}
+
+a.img-nautica:hover{
+    background-image: url('/bundles/common/images/iconos/nautica-hover.png');
+}
+
+a.img-gruas{
+    background-image: url('/bundles/common/images/iconos/gruas.png');
+}
+
+a.img-gruas:hover{
+    background-image: url('/bundles/common/images/iconos/gruas-hover.png');
 }
 
 /* RESPONSIVE */
@@ -105,6 +167,10 @@ span.asterisco-requerido{
     .col-lg-3.force-left {
         width: inherit;
         float: left;
+    }
+
+    .float-right.text-center.container-un-tercio{
+        float: inherit;
     }
 }
 @media (min-width: 768px)  {
@@ -124,6 +190,10 @@ span.asterisco-requerido{
 
     ul.errors.col-lg-12{
         padding-bottom: 7px;
+    }
+
+    .float-right.text-center.container-un-tercio{
+        float: inherit;
     }
 }
 
@@ -153,6 +223,10 @@ span.asterisco-requerido{
     
     ul.errors.col-lg-12{
         padding-bottom: 0;
+    }
+
+    .float-right.text-center.container-un-tercio{
+        float: inherit;
     }
 }
 
@@ -190,5 +264,9 @@ span.asterisco-requerido{
 
     ul.errors.col-lg-12{
         padding-bottom: 7px;
+    }
+
+    .float-right.text-center.container-un-tercio{
+        float: right;
     }
 }
