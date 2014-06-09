@@ -2,6 +2,7 @@
 
 namespace Scor\FrontendBundle\Controller;
 
+use Scor\CommonBundle\Form\PedirCitaType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -17,6 +18,75 @@ class GeneralController extends Controller
     public function indexAction()
     {
         return array();
+    }
+
+    /**
+     * Acción que muestra y procesa el formulario de pedir cita.
+     *
+     * @Template()
+     */
+    public function pedirCitaAction()
+    {
+        $form = $this->createForm(new PedirCitaType());
+
+        $request = $this->get('request');
+
+        if ($request->isMethod('POST'))
+        {
+            $form->submit($request);
+
+            if ($form->isValid())
+            {
+                // Mensaje para la empresa
+                $messageEmpresa = \Swift_Message::newInstance()
+                    ->setSubject('['.$this->container->getParameter('dominio').'] Cita previa desde la web')
+                    ->setFrom($form->get('email')->getData())
+                    ->setTo($this->container->getParameter('contacto_email'))
+                    ->setBody(
+                        $this->renderView(
+                            'FrontendBundle:General:emailPedirCita.txt.twig',
+                            array(
+                                'nombre' => $form->get('nombre')->getData(),
+                                'apellidos' => $form->get('apellidos')->getData(),
+                                'email' => $form->get('email')->getData(),
+                                'telefono' => $form->get('telefono')->getData(),
+                                'licencia_permiso' => PedirCitaType::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
+                                'fecha' => $form->get('fecha')->getData(),
+                                'hora' => $form->get('hora')->getData(),
+                                'observaciones' => $form->get('observaciones')->getData()
+                            )
+                        )
+                    );
+
+                $this->get('mailer')->send($messageEmpresa);
+
+                // Mensaje para el cliente
+                $messageCliente = \Swift_Message::newInstance()
+                    ->setSubject('Cita con '.$this->container->getParameter('scor_psico'))
+                    ->setFrom($this->container->getParameter('contacto_email'))
+                    ->setTo($form->get('email')->getData())
+                    ->setBody(
+                        $this->renderView(
+                            'FrontendBundle:General:emailRegistroCitaCliente.txt.twig',
+                            array(
+                                'nombre' => $form->get('nombre')->getData(),
+                                'apellidos' => $form->get('apellidos')->getData(),
+                                'licencia_permiso' => PedirCitaType::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
+                                'fecha' => $form->get('fecha')->getData(),
+                                'hora' => $form->get('hora')->getData()
+                            )
+                        )
+                    );
+
+                $this->get('mailer')->send($messageCliente);
+
+                $request->getSession()->getFlashBag()->add('ok', 'Se ha registrado su cita. Recuerde que contactaremos con usted para confirmarla.');
+
+                return $this->redirect($this->generateUrl('pedir_cita'));
+            }
+        }
+
+        return array('form' => $form->createView());
     }
 
     /**

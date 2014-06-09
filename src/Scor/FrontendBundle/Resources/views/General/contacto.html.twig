@@ -7,7 +7,7 @@
 <div class="float-left container-half">
     <h2>Localización</h2>
 
-    <p class="texto-gris-oscuro">
+    <p class="texto-gris-oscuro margen-peque">
         Santutxu, 7 - 2ºB (48004) Bilbao<br />
         94 4333 08 03 / {{ contactoEmail }}
     </p>
@@ -18,7 +18,7 @@
     <h2>Contacto</h2>
 
     <p class="texto-gris-oscuro">
-        Para obtener o renovar una licencia/certificado haga click en <a href="#" class="btn btn-xs btn-success" role="button">pedir cita</a>
+        Para obtener o renovar una licencia/certificado haga click en <a href="{{ path('pedir_cita') }}" class="btn btn-xs btn-success" role="button">pedir cita</a>
     </p>
 
     {% form_theme form 'CommonBundle:Form:fields_bootstrap_h.html.twig' %}

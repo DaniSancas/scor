@@ -1,0 +1,8 @@
+Hola {{ (nombre ~ ((apellidos) ? (" " ~ apellidos) : '')) }},
+
+Tu cita para "{{ licencia_permiso }}" con {{ scor_psico }} ha sido registrada para el {{ (fecha ~ ", a las " ~ hora) }}.
+
+Recuerde que todavía no se ha confirmado la fecha/hora de la cita. Para ello, {{ scor_psico }} se pondrá en contacto con usted.
+
+Reciba un cordial saludo,
+El equipo de {{ scor_psico }}

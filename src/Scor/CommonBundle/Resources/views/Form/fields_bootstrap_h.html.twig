@@ -24,13 +24,23 @@
 {% endblock form_label %}
 
 {% block form_row %}
-{% spaceless %}
+    {% spaceless %}
     <div class="form-group">
         {{ form_errors(form) }}
+        {% if 'checkbox' in form.vars.block_prefixes %}
+        {# Si es la fila de un checkbox, utilizamos otra organización #}
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="checkbox">
+                    {{ form_widget(form) }}
+                    {{ form_label(form) }}
+                </div>
+            </div>
+    {% else %}
         {{ form_label(form, [], {'label_attr': {'class': 'col-lg-3 control-label'}}) }}
         <div class="col-lg-9">
             {{ form_widget(form, {'attr': {'class': 'form-control'}} ) }}
         </div>
+    {% endif %}
     </div>
 {% endspaceless %}
 {% endblock form_row %}

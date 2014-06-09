@@ -28,7 +28,7 @@
                                 <li><a href="#">Grúas</a></li>
                             </ul>
                         </li>
-                        <li><a href="#contact">Pedir cita</a></li>
+                        <li class="{% if get_action_name() == 'pedirCita' %}active{% endif %}"><a href="{{ path('pedir_cita') }}">Pedir cita</a></li>
                         <li class="{% if get_action_name() == 'contacto' %}active{% endif %}"><a href="{{ path('contacto') }}">Localización y contacto</a></li>
                     </ul>
                 </div>

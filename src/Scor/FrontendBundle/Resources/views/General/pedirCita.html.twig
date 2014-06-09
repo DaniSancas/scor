@@ -1,0 +1,66 @@
+{% extends "FrontendBundle::layout.html.twig" %}
+
+{% block title %}Pedir cita{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('pickdate/css/default.css') }}" rel="stylesheet" />
+    <link href="{{ asset('pickdate/css/default.date.css') }}" rel="stylesheet" />
+    <link href="{{ asset('pickdate/css/default.time.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('pickdate/js/picker.js') }}"></script>
+    <script src="{{ asset('pickdate/js/picker.date.js') }}"></script>
+    <script src="{{ asset('pickdate/js/picker.time.js') }}"></script>
+    <script src="{{ asset('bundles/common/js/picker.custom.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="float-left container-dos-tercios">
+    <h2>Pedir cita</h2>
+    <h3>Formulario para alta o renovación de permisos y licencias.</h3>
+
+    <p class="texto-gris-oscuro">
+        Si tan solo desea contactar con nosotros para realizar una consulta, diríjase a la sección de <a href="{{ path('contacto') }}" class="btn btn-xs btn-success" role="button">contacto</a>
+    </p>
+
+    {% form_theme form 'CommonBundle:Form:fields_bootstrap_h.html.twig' %}
+
+    <form class="form-horizontal no-readonly" action="{{path("pedir_cita_submit")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
+        {{ form_widget(form) }}
+        <div class="form-group">
+            <label class="col-lg-3 control-label"></label>
+            <div class="col-lg-9">
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="float-right container-un-tercio text-center">
+    <h2 class="">Horario</h2>
+
+    <p class="texto-gris-oscuro texto-medio-grande">
+        De lunes a viernes, <br />
+        Mañana: 09:30 a 13:00 <br />
+        Tarde: 16:30 a 19:30
+    </p>
+</div>
+
+{% endblock %}
+
+{% block documentReady %}
+    $('#{{ form.fecha.vars.id }}').pickadate({
+        today: '',
+        min: [{{ ("tomorrow"|date("Y")) }},{{ ("tomorrow"|date("m"))-1 }},{{ ("tomorrow"|date("d")) }}],
+        max: [{{ ("next month"|date("Y")) }},{{ ("next month"|date("m"))-1 }},{{ ("next month"|date("d")) }}]
+    });
+    $('#{{ form.hora.vars.id }}').pickatime({
+        min: [9,30],
+        max: [19,0],
+        disable: [{
+            from: [13,0], to: [16,0]
+        }]
+    });
+{% endblock documentReady %}
