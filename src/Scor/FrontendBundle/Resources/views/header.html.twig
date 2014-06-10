@@ -13,19 +13,19 @@
                     <a class="navbar-brand" href="{{ path('homepage') }}">S.C.O.R.</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul id="header" class="nav navbar-nav">
                         <li class="{% if get_action_name() == 'index' %}active{% endif %}"><a href="{{ path('homepage') }}">Inicio</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown{% if get_controller_name() == 'licencia' %} active{% endif %}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Licencias y permisos <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Carnet de conducir</a></li>
-                                <li><a href="#">Animales peligrosos</a></li>
+                                <li><a href="{{ path('conducir') }}">Carnet de conducir</a></li>
+                                <li><a href="{{ path('animales') }}">Animales peligrosos</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Permiso de armas</a></li>
-                                <li><a href="#">Seguridad privada</a></li>
+                                <li><a href="{{ path('armas') }}">Permiso de armas</a></li>
+                                <li><a href="{{ path('seguridad') }}">Seguridad privada</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Náutica</a></li>
-                                <li><a href="#">Grúas</a></li>
+                                <li><a href="{{ path('nautica') }}">Náutica</a></li>
+                                <li><a href="{{ path('gruas') }}">Grúas</a></li>
                             </ul>
                         </li>
                         <li class="{% if get_action_name() == 'pedirCita' %}active{% endif %}"><a href="{{ path('pedir_cita') }}">Pedir cita</a></li>

@@ -1,3 +1,28 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #EEE;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#header{
+    float: right;
+}
+
 #content {
     padding-top: 75px;
 }
@@ -59,6 +84,10 @@
     padding: 6px 12px;
 }
 
+.margen{
+    padding: 12px 24px;
+}
+
 .texto-medio-grande{
     font-size: 1.2em;
 }
@@ -99,63 +128,81 @@ span.asterisco-requerido{
     color: #F00;
 }
 
-a.img-background-120{
+.img-background-120{
     width: 120px;
     height: 120px;
     display: inline-block;
 }
 
-a.img-conducir{
+.img-background-60{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-size: 60px 60px;
+}
+
+.img-conducir{
     background-image: url('/bundles/common/images/iconos/conducir.png');
 }
 
-a.img-conducir:hover{
+.img-conducir:hover, .img-conducir.active{
     background-image: url('/bundles/common/images/iconos/conducir-hover.png');
 }
 
-a.img-armas{
+.img-armas{
     background-image: url('/bundles/common/images/iconos/armas.png');
 }
 
-a.img-armas:hover{
+.img-armas:hover, .img-armas.active{
     background-image: url('/bundles/common/images/iconos/armas-hover.png');
 }
 
-a.img-seguridad{
+.img-seguridad{
     background-image: url('/bundles/common/images/iconos/seguridad.png');
 }
 
-a.img-seguridad:hover{
+.img-seguridad:hover, .img-seguridad.active{
     background-image: url('/bundles/common/images/iconos/seguridad-hover.png');
 }
 
-a.img-animales{
+.img-animales{
     background-image: url('/bundles/common/images/iconos/animales.png');
 }
 
-a.img-animales:hover{
+.img-animales:hover, .img-animales.active{
     background-image: url('/bundles/common/images/iconos/animales-hover.png');
 }
 
-a.img-nautica{
+.img-nautica{
     background-image: url('/bundles/common/images/iconos/nautica.png');
 }
 
-a.img-nautica:hover{
+.img-nautica:hover, .img-nautica.active{
     background-image: url('/bundles/common/images/iconos/nautica-hover.png');
 }
 
-a.img-gruas{
+.img-gruas{
     background-image: url('/bundles/common/images/iconos/gruas.png');
 }
 
-a.img-gruas:hover{
+.img-gruas:hover, .img-gruas.active{
     background-image: url('/bundles/common/images/iconos/gruas-hover.png');
+}
+
+.licencia-submenu{
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: #CCC 1px solid;
 }
 
 /* RESPONSIVE */
 
 @media (max-width: 767px) {
+
+    #content.container{
+        font-size: 125%;
+    }
+
     .container-half{
         width: 100%;
     }
@@ -171,6 +218,19 @@ a.img-gruas:hover{
 
     .float-right.text-center.container-un-tercio{
         float: inherit;
+    }
+
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 100px;
+    }
+
+    #footer {
+        height: 100px;
+    }
+
+    #header{
+        float: none;
     }
 }
 @media (min-width: 768px)  {
@@ -194,6 +254,19 @@ a.img-gruas:hover{
 
     .float-right.text-center.container-un-tercio{
         float: inherit;
+    }
+
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+
+    #footer {
+        height: 60px;
+    }
+
+    #header{
+        float: right !important;
     }
 }
 

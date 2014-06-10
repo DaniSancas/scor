@@ -25,3 +25,7 @@ contacto_submit:
     defaults: { _controller: FrontendBundle:General:contacto }
     requirements:
         _method:  POST
+
+licencia:
+    resource: "@FrontendBundle/Resources/config/routing_licencia.yml"
+    prefix:   /licencias-permisos/
