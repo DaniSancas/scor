@@ -5,7 +5,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 75px;
 }
 
 #footer {
@@ -13,7 +13,7 @@ body {
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 60px;
+    height: 75px;
     background-color: #EEE;
     padding-top: 20px;
     text-align: center;
@@ -195,6 +195,14 @@ span.asterisco-requerido{
     border-bottom: #CCC 1px solid;
 }
 
+.borde-inferior{
+    border-bottom: 1px solid #CCC;
+}
+
+.container-peque{
+    max-width: 300px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 767px) {
@@ -222,11 +230,11 @@ span.asterisco-requerido{
 
     body {
         /* Margin bottom by footer height */
-        margin-bottom: 100px;
+        margin-bottom: 125px;
     }
 
     #footer {
-        height: 100px;
+        height: 125px;
     }
 
     #header{
@@ -258,11 +266,11 @@ span.asterisco-requerido{
 
     body {
         /* Margin bottom by footer height */
-        margin-bottom: 60px;
+        margin-bottom: 75px;
     }
 
     #footer {
-        height: 60px;
+        height: 75px;
     }
 
     #header{

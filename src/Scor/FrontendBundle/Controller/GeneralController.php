@@ -135,4 +135,24 @@ class GeneralController extends Controller
 
         return array('form' => $form->createView(), 'contactoEmail' => $this->container->getParameter('contacto_email'));
     }
+
+    /**
+     * Acción que muestra la página de términos y condiciones de uso.
+     *
+     * @Template()
+     */
+    public function terminosCondicionesAction()
+    {
+        return array();
+    }
+
+    /**
+     * Acción que muestra la página del sitemap.
+     *
+     * @Template()
+     */
+    public function sitemapAction()
+    {
+        return array();
+    }
 }

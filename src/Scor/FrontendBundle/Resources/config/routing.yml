@@ -29,3 +29,11 @@ contacto_submit:
 licencia:
     resource: "@FrontendBundle/Resources/config/routing_licencia.yml"
     prefix:   /licencias-permisos/
+
+terminos_condiciones:
+    pattern:  /terminos-condiciones-uso
+    defaults: { _controller: FrontendBundle:General:terminosCondiciones }
+
+sitemap:
+    pattern:  /sitemap
+    defaults: { _controller: FrontendBundle:General:sitemap }
