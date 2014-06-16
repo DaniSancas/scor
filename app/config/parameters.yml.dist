@@ -16,5 +16,6 @@ parameters:
 
     contacto_email:    ~
     webmaster_email:   ~
+    avisador_email:    ~
     dominio:           ~
     scor_psico:        ~

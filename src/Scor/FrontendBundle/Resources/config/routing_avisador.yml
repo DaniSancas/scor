@@ -1,0 +1,15 @@
+registrar_caducidad:
+    pattern: /registrar
+    defaults: { _controller: FrontendBundle:Avisador:registrar }
+    requirements:
+            _method:  GET
+
+registrar_caducidad_submit:
+    pattern: /registrar
+    defaults: { _controller: FrontendBundle:Avisador:registrar }
+    requirements:
+            _method:  POST
+
+avisar_caducidad:
+    pattern: /avisar
+    defaults: { _controller: FrontendBundle:Avisador:avisar }

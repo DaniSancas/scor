@@ -276,6 +276,10 @@ span.asterisco-requerido{
     #header{
         float: right !important;
     }
+
+    #header-wrapper{
+        font-size: 85%;
+    }
 }
 
 @media (min-width: 992px) {
@@ -308,6 +312,10 @@ span.asterisco-requerido{
 
     .float-right.text-center.container-un-tercio{
         float: inherit;
+    }
+
+    #header-wrapper{
+        font-size: 100%;
     }
 }
 

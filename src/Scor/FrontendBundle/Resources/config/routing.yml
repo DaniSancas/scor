@@ -30,6 +30,10 @@ licencia:
     resource: "@FrontendBundle/Resources/config/routing_licencia.yml"
     prefix:   /licencias-permisos/
 
+avisador:
+    resource: "@FrontendBundle/Resources/config/routing_avisador.yml"
+    prefix:   /avisador-caducidad/
+
 terminos_condiciones:
     pattern:  /terminos-condiciones-uso
     defaults: { _controller: FrontendBundle:General:terminosCondiciones }

@@ -1,0 +1,33 @@
+{% extends "FrontendBundle::layout.html.twig" %}
+
+{% block title %}Avisador de caducidad{% endblock %}
+
+{% block content %}
+
+    <div class="float-left container-dos-tercios">
+        <h2>Avisador de caducidad</h2>
+        <h4>Introduzca la fecha de caducidad de su licencia y le avisaremos para la renovación.</h4>
+
+        {% form_theme form 'CommonBundle:Form:fields_bootstrap_h.html.twig' %}
+
+        <form class="form-horizontal no-readonly" action="{{path("registrar_caducidad_submit")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
+            {{ form_widget(form) }}
+            <div class="form-group">
+                <label class="col-lg-3 control-label"></label>
+                <div class="col-lg-9">
+                    <button type="submit" class="btn btn-success">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="float-right container-un-tercio text-center">
+        <h2 class="">Alertas vía email</h2>
+
+        <p><img src="{{ asset('bundles/common/images/iconos/caducidad.png') }}" alt="Avisador de caducidad" /></p>
+
+        <p class="texto-gris-oscuro texto-medio-grande">Gracias a nuestro avisador de caducidad, será informado automaticamente vía email cuando su licencia o permiso esté próximo a expirar.</p>
+        <p class="texto-gris-oscuro texto-medio-grande">Asegúrese de que recibe nuestros emails, añada {{ avisadorEmail }} a sus contactos o libreta de direcciones.</p>
+    </div>
+
+{% endblock %}
