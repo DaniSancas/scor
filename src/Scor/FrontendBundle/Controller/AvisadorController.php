@@ -26,8 +26,11 @@ class AvisadorController extends Controller
 
             if ($form->isValid())
             {
-                //...
+                $em = $this->getDoctrine()->getManager();
+                $caducidad = $form->getData();
 
+                $em->persist($caducidad);
+                $em->flush();
 
                 $request->getSession()->getFlashBag()->add('ok', 'Se ha registrado la fecha de caducidad de su licencia/permiso. Le avisaremos cuando se acerque la fecha de renovación.');
 
@@ -47,7 +50,7 @@ class AvisadorController extends Controller
      */
     public function avisarAction()
     {
-
+        //TODO quizá no sea necesaria esta acción
     }
 
 

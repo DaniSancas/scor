@@ -1,0 +1,17 @@
+Hola {{ (nombre ~ ((apellidos) ? (" " ~ apellidos) : '')) }},
+
+Nos ponemos en contacto con usted debido a que su licencia/permiso "{{ licencia_permiso }}" caduca el {{ fecha }}. Le recomendamos que lo renueve en las oficinas de {{ scor_psico }} antes de que caduque. Aunque lo renueve antes de la fecha límite no perderá esos días para la próxima fecha de caducidad.
+
+Si desea concertar una cita previa vía Internet haga click en el siguiente enlace o copie y pegue la dirección en su navegador.
+{{ link_cita }}
+
+También puede concertar una cita vía telefónica durante nuestro horario de oficina:
+Teléfono: 94 433 08 03
+Horario: De lunes a viernes de 9:30 a 13:00 y de 16:30 a 19:30
+Dirección: C/ Santutxu nº 7 - 2ºB (Bilbao)
+
+Aviso: Se le enviará un último recordatorio el mes que viene. Si ya ha renovado su licencia/permiso o no desea recibir otra alerta similar, puede silenciar estas notificaciones en el siguiente enlace:
+{{ link_unsuscribe }}
+
+Se despide atentamente,
+El equipo de {{ scor_psico }}

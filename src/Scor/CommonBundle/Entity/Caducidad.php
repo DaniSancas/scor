@@ -4,12 +4,18 @@ namespace Scor\CommonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Caducidad
  *
  * @ORM\Table(name="caducidad")
  * @ORM\Entity(repositoryClass="Scor\CommonBundle\Entity\CaducidadRepository")
+ * @UniqueEntity(
+ *     fields={"email", "fecha", "licenciaPermiso"},
+ *     errorPath="licenciaPermiso",
+ *     message="La caducidad de esta licencia ya está registrada bajo este email."
+ * )
  */
 class Caducidad
 {
@@ -26,7 +32,7 @@ class Caducidad
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message = "Debe especificar su nombre.")
      */
     private $nombre;
 
@@ -41,7 +47,7 @@ class Caducidad
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message = "Debe especificar su email.")
      */
     private $email;
 
@@ -49,15 +55,16 @@ class Caducidad
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="datetime", nullable=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message = "Debe especificar la fecha de caducidad con formato dd/mm/aaaa")
+     * @Assert\Date()
      */
     private $fecha;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="licencia_permiso", type="smallint", nullable=false)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="licencia_permiso", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message = "Debe elegir la licencia o permiso que quiera renovar.")
      */
     private $licenciaPermiso;
 
@@ -167,7 +174,7 @@ class Caducidad
     /**
      * Set licenciaPermiso
      *
-     * @param integer $licenciaPermiso
+     * @param string $licenciaPermiso
      * @return Caducidad
      */
     public function setLicenciaPermiso($licenciaPermiso)
@@ -180,7 +187,7 @@ class Caducidad
     /**
      * Get licenciaPermiso
      *
-     * @return integer 
+     * @return string
      */
     public function getLicenciaPermiso()
     {

@@ -3,6 +3,7 @@
 namespace Scor\FrontendBundle\Controller;
 
 use Scor\CommonBundle\Form\PedirCitaType;
+use Scor\CommonBundle\Library\Util;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -50,8 +51,8 @@ class GeneralController extends Controller
                                 'apellidos' => $form->get('apellidos')->getData(),
                                 'email' => $form->get('email')->getData(),
                                 'telefono' => $form->get('telefono')->getData(),
-                                'licencia_permiso' => PedirCitaType::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
-                                'operacion' => PedirCitaType::getOperacion($form->get('operacion')->getData()),
+                                'licencia_permiso' => Util::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
+                                'operacion' => Util::getOperacion($form->get('operacion')->getData()),
                                 'fecha' => $form->get('fecha')->getData(),
                                 'hora' => $form->get('hora')->getData(),
                                 'observaciones' => $form->get('observaciones')->getData()
@@ -72,8 +73,8 @@ class GeneralController extends Controller
                             array(
                                 'nombre' => $form->get('nombre')->getData(),
                                 'apellidos' => $form->get('apellidos')->getData(),
-                                'licencia_permiso' => PedirCitaType::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
-                                'operacion' => PedirCitaType::getOperacion($form->get('operacion')->getData()),
+                                'licencia_permiso' => Util::getLicenciaOPermiso($form->get('licencias_permisos')->getData()),
+                                'operacion' => Util::getOperacion($form->get('operacion')->getData()),
                                 'fecha' => $form->get('fecha')->getData(),
                                 'hora' => $form->get('hora')->getData()
                             )
