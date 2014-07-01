@@ -6,6 +6,7 @@ use Scor\CommonBundle\Entity\Caducidad;
 use Scor\CommonBundle\Form\CaducidadType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 
 class AvisadorController extends Controller
 {
@@ -56,9 +57,27 @@ class AvisadorController extends Controller
 
     /**
      * Acción llamada desde un enlace desde el email de aviso, para aquellos que no quieran seguir recibiendo alertas.
+     *
+     * Si la id y el email enviados coinciden, se actualizará la caducidad para que no mande más avisos.
      */
-    public function silenciarAction()
+    public function silenciarAction(Request $request)
     {
+        $id = $request->get('id');
+        $email = $request->get('email');
 
+        $em = $this->getDoctrine()->getManager();
+        $caducidad = $em->getRepository('CommonBundle:Caducidad')->find(array('id' => $id, 'email' => $email));
+
+        if($caducidad)
+        {
+            $caducidad->setMandaAviso(false);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('ok', 'Se ha desactivado con éxito el recordatorio de renovación. No se enviarán más emails vinculados a la caducidad de este permiso o licencia.');
+        }else{
+            $request->getSession()->getFlashBag()->add('error', 'No se ha podido desactivar el recordatorio de renovación. Inténtelo de nuevo. Si el problema persiste contacte con los administradores. Disculpe las molestias.');
+        }
+
+        return $this->redirect($this->generateUrl('homepage'));
     }
 }

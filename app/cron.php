@@ -7,5 +7,5 @@ use Scor\CommonBundle\Command\CaducidadCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;;
 
 $application = new Application(new AppKernel("dev", false));
-$application->add(new CaducidadCommand);
+$application->add(new CaducidadCommand());
 $application->run();

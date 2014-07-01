@@ -68,6 +68,23 @@ class Caducidad
      */
     private $licenciaPermiso;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="manda_aviso", type="boolean", nullable=false)
+     * @Assert\NotNull()
+     */
+    private $mandaAviso;
+
+
+    /**
+     * Class constructor
+     *
+     */
+    public function __construct()
+    {
+        $this->mandaAviso = true;
+    }
 
     /**
      * Get id
@@ -192,5 +209,28 @@ class Caducidad
     public function getLicenciaPermiso()
     {
         return $this->licenciaPermiso;
+    }
+
+    /**
+     * Set mandaAviso
+     *
+     * @param boolean $mandaAviso
+     * @return Caducidad
+     */
+    public function setMandaAviso($mandaAviso)
+    {
+        $this->mandaAviso = $mandaAviso;
+
+        return $this;
+    }
+
+    /**
+     * Get mandaAviso
+     *
+     * @return boolean
+     */
+    public function getMandaAviso()
+    {
+        return $this->mandaAviso;
     }
 }

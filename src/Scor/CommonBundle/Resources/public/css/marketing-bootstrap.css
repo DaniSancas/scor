@@ -17,6 +17,12 @@
     margin-left: 10px;
 }
 
+.jumbotron.overflow{
+    background-image: url('/bundles/common/images/30-anios-en-santutxu.gif');
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

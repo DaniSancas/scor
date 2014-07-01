@@ -14,13 +14,14 @@ class CaducidadRepository extends EntityRepository
 {
     /**
      * Devuelve todas aquellas licencias que caduquen en 1..3 meses
+     * No se devolverán aquellas a las que se haya desactivado el aviso (mandaAviso == false)
      *
      * @param int $meses
      * @return array Caducidades
      */
     public function findCaducidadByMeses($meses = 1)
     {
-        $q = $this->getEntityManager()->createQuery('SELECT c FROM CommonBundle:Caducidad c WHERE c.fecha >= :inicio AND c.fecha < :fin');
+        $q = $this->getEntityManager()->createQuery('SELECT c FROM CommonBundle:Caducidad c WHERE c.fecha >= :inicio AND c.fecha < :fin AND c.mandaAviso = true');
 
         switch($meses)
         {

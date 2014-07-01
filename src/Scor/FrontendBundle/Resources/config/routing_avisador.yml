@@ -13,3 +13,7 @@ registrar_caducidad_submit:
 avisar_caducidad:
     pattern: /avisar
     defaults: { _controller: FrontendBundle:Avisador:avisar }
+
+silenciar_caducidad:
+    pattern: /unsuscribe
+    defaults: { _controller: FrontendBundle:Avisador:silenciar }
