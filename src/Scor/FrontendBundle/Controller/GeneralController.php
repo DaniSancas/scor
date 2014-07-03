@@ -87,7 +87,7 @@ class GeneralController extends Controller
 
                 return $this->redirect($this->generateUrl('pedir_cita'));
             }
-        }
+        } // @codeCoverageIgnore
 
         return array('form' => $form->createView());
     }
@@ -132,7 +132,7 @@ class GeneralController extends Controller
 
                 return $this->redirect($this->generateUrl('contacto'));
             }
-        }
+        } // @codeCoverageIgnore
 
         return array('form' => $form->createView(), 'contactoEmail' => $this->container->getParameter('contacto_email'));
     }

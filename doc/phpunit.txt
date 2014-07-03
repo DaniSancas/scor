@@ -1,0 +1,7 @@
+COMANDO PHPUNIT
+
+# Full coverage
+phpunit -c app/ coverage-html output_dir/
+
+# Test Controller
+phpunit -c app/ Acme/SomeBundle/Controller/Tests/DefaultControllerTest.php

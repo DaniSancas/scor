@@ -43,19 +43,6 @@ class AvisadorController extends Controller
     }
 
     /**
-     * Acción llamada desde un CronJob, que recorre todas las licencias a punto de caducar:
-     *
-     * * Licencias cuya caducidad es en 3 meses o menos.
-     * * Se utilizarán 3 plantillas diferentes a la hora de enviar los emails, dependiendo de su proximidad a la caducidad.
-     *
-     */
-    public function avisarAction()
-    {
-        //TODO quizá no sea necesaria esta acción
-    }
-
-
-    /**
      * Acción llamada desde un enlace desde el email de aviso, para aquellos que no quieran seguir recibiendo alertas.
      *
      * Si la id y el email enviados coinciden, se actualizará la caducidad para que no mande más avisos.
