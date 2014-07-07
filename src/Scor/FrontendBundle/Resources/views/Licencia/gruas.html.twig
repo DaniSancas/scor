@@ -3,5 +3,41 @@
 {% block title_preffix %}Grúas{% endblock %}
 
 {% block inner_content %}
-    <h1>Grúas</h1>
+    <div class="overflow">
+        <h1>Grúas</h1>
+
+        <p>De conformidad con lo establecido en el Real Decreto de 27 de Junio (BOE 17/07/03), se autoriza a los centros médicos y psicotécnicos la realización del reconocimiento facultativo pertinente de las aptitudes físicas y psicológicas necesarias para la Obtención o Renovación del Permiso o Carnet de Grúas.</p>
+
+        <p>Existen dos tipos de permisos de grúas:</p>
+
+        <ul>
+            <li>Licencia o Autorización de conducción y/o manejo como Operador de Grúa - Torre para obras. </li>
+            <li>Permiso o carne de grúa móvil autopropulsada. </li>
+        </ul>
+
+        <p class="margin-top"><a href="{{ path('pedir_cita', {'licencias_permisos': 'gruas'}) }}" class="btn btn-s btn-success" role="button">Pedir cita</a> para obtener o renovar el Permiso de Grúas.</p>
+    </div>
+    <div class="overflow">
+        <div class="container-half float-left">
+            <h2>Documentación necesaria para obtener o renovar el Psicotécnico de Grúas</h2>
+
+            <ul>
+                <li>Únicamente el D.N. I. </li>
+                <li>La fotografía la hacemos gratis en las oficinas de {{ scor_psico }}. </li>
+            </ul>
+        </div>
+        <div class="container-half float-right">
+            <h2>Documentación para presentar al Departamento de Industria</h2>
+
+            <ul>
+                <li>Nuestro certificado médico y psicotécnico. </li>
+                <li>Impreso de solicitud. Se lo facilitamos en {{ scor_psico }} </li>
+                <li>Fotocopia del D.N.I. </li>
+                <li>Diploma del curso de gruista original y fotocopia. </li>
+                <li>Presentar la documentación en el departamento de Industria del Gobierno Vasco: C/ General Concha nº 23, 1º piso (Antes de subir y para evitar esperar, se coge el ticket del turno en la planta baja) </li>
+                <li>Precio de Tasas a pagar en Industria: 16,73 € (Se pagan allí mismo con tarjeta) </li>
+                <li>NOTA: Una vez presentada la documentación, el Departamento de Industria le enviará por correo el permiso a su domicilio.</li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

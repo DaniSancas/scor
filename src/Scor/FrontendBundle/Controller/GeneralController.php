@@ -28,9 +28,13 @@ class GeneralController extends Controller
      */
     public function pedirCitaAction()
     {
-        $form = $this->createForm(new PedirCitaType());
-
         $request = $this->get('request');
+
+        $licenciaPermiso = $request->get('licencias_permisos');
+
+        $arrayParams = (array_key_exists($licenciaPermiso, Util::getLicenciasYPermisos())) ?array('licencias_permisos' => $licenciaPermiso) : null;
+
+        $form = $this->createForm(new PedirCitaType(), $arrayParams);
 
         if ($request->isMethod('POST'))
         {

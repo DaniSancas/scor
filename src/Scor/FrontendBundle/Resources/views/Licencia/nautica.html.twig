@@ -3,5 +3,43 @@
 {% block title_preffix %}Náutica{% endblock %}
 
 {% block inner_content %}
-    <h1>Náutica</h1>
+    <div class="overflow">
+        <h1>Náutica / Marina - Embarcaciones de recreo</h1>
+
+        <p>En resolución de 11 de Enero de 2010, de la Dirección General de la Marina Mercante, se autorizó a los centros médicos y psicotécnicos para acreditar de la aptitud psicofísica para el manejo de embarcaciones de recreo. Dichos acreditaciones serán análogas a los conductores de permisos ordinarios (no profesionales) para vehículos terrestres a motor.</p>
+
+        <p>Se engloban los siguientes tipos de embarcaciones de recreo:</p>
+
+        <ul>
+            <li>Patrón de Embarcación de Recreo. </li>
+            <li>Patrón de Navegación Básica. </li>
+            <li>Capitán de Yate. </li>
+            <li>Patrón de yate. </li>
+            <li>Patrón de Moto Náutica. </li>
+        </ul>
+
+        <p class="margin-top"><a href="{{ path('pedir_cita', {'licencias_permisos': 'nautica'}) }}" class="btn btn-s btn-success" role="button">Pedir cita</a> para obtener o renovar el Permiso de Náutica / Marina.</p>
+    </div>
+    <div class="overflow">
+        <div class="container-half float-left">
+            <h2>Documentación necesaria para obtener o renovar el Psicotécnico de Marina</h2>
+
+            <ul>
+                <li>Únicamente el D.N. I. </li>
+                <li>La fotografía la hacemos gratis en las oficinas de {{ scor_psico }}. </li>
+                <li>NOTA: Si has obtenido o renovado tu carnet de conducir hace dos años o menos. Solo necesitas hacer la revisión ocular del test cromático, revisión ocular de diferenciación de los colores. Como consecuencia, la tarifa de dicho test se reducirá ostensiblemente. </li>
+            </ul>
+        </div>
+        <div class="container-half float-right">
+            <h2>Documentación necesaria para renovar su título</h2>
+
+            <ul>
+                <li>Nuestro certificado médico y psicotécnico. </li>
+                <li>2 fotografías. Las realizamos gratuitamente nosotros en nuestras oficinas. </li>
+                <li>Impreso de solicitud cumplimentada. También se la facilitamos en {{ scor_psico }} </li>
+                <li>Fotocopia del D.N.I. </li>
+                <li>Titulo a renovar (original)</li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
