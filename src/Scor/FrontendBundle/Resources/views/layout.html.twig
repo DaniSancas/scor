@@ -2,6 +2,21 @@
 
 {% block extra_metatags %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% spaceless %}
+    {% if block('description_metatag') %}
+        {% block description_metatag %}{% endblock %}
+    {% else %}
+        S.C.O.R. - Centro médico y psicotécnico situado en C/ Santutxu 7, 2º- B (Bilbao) desde hace 30 años. Obtención y renovación de todos los permisos y licencias.
+    {% endif %}
+    {% endspaceless %}">
+    <meta name="keywords" content="{% spaceless %}
+    {% if block('keywords_metatag') %}
+        {% block keywords_metatag %}{% endblock %}
+    {% else %}
+        Psicotécnicos, Santutxu, renovar, carnet, licencia, permiso, conducir, animales peligrosos, armas, seguridad, grúas, náutica, marina, centro médico, Bilbao
+    {% endif %}
+    {% endspaceless %}">
+    <meta name="author" content="Dani Sancas">
 {% endblock %}
 
 {% block default_stylesheets %}

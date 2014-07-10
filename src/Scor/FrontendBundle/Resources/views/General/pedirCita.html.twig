@@ -1,5 +1,13 @@
 {% extends "FrontendBundle::layout.html.twig" %}
 
+{% block description_metatag %}
+    Formulario para pedir cita previa con {{ scor_psico }} para obtener o renovar cualquier licencia, permiso o carnet vigente.
+{% endblock %}
+
+{% block keywords_metatag %}
+    Pedir cita, cita previa, obtener, renovar, obtención, renovación, licencia, permiso, carnet, conducir, armas, seguridad, animales peligrosos, perros, náutica, marina, grúas
+{% endblock %}
+
 {% block title %}Pedir cita{% endblock %}
 
 {% block stylesheets %}
@@ -19,7 +27,7 @@
 
 <div class="float-left container-dos-tercios">
     <h2>Pedir cita</h2>
-    <h3>Formulario para alta o renovación de permisos y licencias.</h3>
+    <h3>Pedir cita para obtener o renovar permisos o licencias.</h3>
 
     <p class="texto-gris-oscuro">
         Si tan solo desea contactar con nosotros para realizar una consulta, diríjase a la sección de <a href="{{ path('contacto') }}" class="btn btn-xs btn-success" role="button">contacto</a>

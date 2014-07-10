@@ -47,7 +47,7 @@ class CaducidadRepositoryFunctionalTest extends WebTestCase
             ->getRepository('CommonBundle:Caducidad')
             ->findCaducidadByMeses(2);
 
-        $this->assertCount(0, $caducidades, count($caducidades));
+        $this->assertGreaterThan(0, $caducidades, count($caducidades));
 
         /* Solo hay uno y tiene el aviso desactivado
         $cad = $caducidades[0];

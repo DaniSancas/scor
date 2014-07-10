@@ -84,7 +84,12 @@ class GeneralControllerTest extends WebTestCase
 
         // Comprobamos que no haya errores
         // Descomentar el mensaje para tener una pista si hay un error
-        $this->assertCount(0, $crawler->filter('ul li.alert.alert-danger')/*, $crawler->filter('ul li.alert.alert-danger')->html()*/);
+        try{
+            $errorContent = $crawler->filter('ul li.alert.alert-danger')->html();
+        }catch(\InvalidArgumentException $e){
+            $errorContent = "";
+        }
+        $this->assertCount(0, $crawler->filter('ul li.alert.alert-danger'), $errorContent); // Comprobamos que no haya errores
 
         $mailCollector = $client->getProfile()->getCollector('swiftmailer');
         $this->assertEquals(1, $mailCollector->getMessageCount());

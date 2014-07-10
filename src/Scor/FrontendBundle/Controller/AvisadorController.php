@@ -37,7 +37,7 @@ class AvisadorController extends Controller
 
                 return $this->redirect($this->generateUrl('registrar_caducidad'));
             }
-        }
+        } // @codeCoverageIgnore
 
         return array('form' => $form->createView(), 'avisadorEmail' => $this->container->getParameter('avisador_email'));
     }

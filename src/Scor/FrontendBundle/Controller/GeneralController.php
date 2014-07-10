@@ -24,6 +24,8 @@ class GeneralController extends Controller
     /**
      * Acción que muestra y procesa el formulario de pedir cita.
      *
+     * Si se especifica en la URL qué licencia o permiso queremos seleccionar por defecto, permitimos su ejecución.
+     *
      * @Template()
      */
     public function pedirCitaAction()
@@ -32,7 +34,7 @@ class GeneralController extends Controller
 
         $licenciaPermiso = $request->get('licencias_permisos');
 
-        $arrayParams = (array_key_exists($licenciaPermiso, Util::getLicenciasYPermisos())) ?array('licencias_permisos' => $licenciaPermiso) : null;
+        $arrayParams = (array_key_exists($licenciaPermiso, Util::getLicenciasYPermisos())) ? array('licencias_permisos' => $licenciaPermiso) : null;
 
         $form = $this->createForm(new PedirCitaType(), $arrayParams);
 
