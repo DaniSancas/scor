@@ -25,6 +25,7 @@ body {
 
 #content {
     padding-top: 75px;
+    padding-bottom: 25px;
 }
 
 .overflow{
@@ -325,11 +326,11 @@ span.asterisco-requerido{
     }
 
     .container-dos-tercios{
-        width: 735px;
+        width: 755px;
     }
 
     .container-un-tercio{
-        width: 365px;
+        width: 385px;
     }
 
     .col-lg-9 {
