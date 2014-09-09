@@ -1,0 +1,16 @@
+{% extends "FrontendBundle::layout.html.twig" %}
+
+{% block content %}
+
+    <h1>Error {{ status_code }} - {{ status_text }}</h1>
+
+    <h2>La página solicitada no está disponible en este momento o no existe.</h2>
+
+
+    <p><em>Descripción del error:</em> {{ exception.message }}</p>
+
+    <p>Intente actualizar la página. Si el problema persiste póngase en contacto con nosotros para comunicarnos el error.</p>
+
+    <p>Puede enviarnos un email a nuestro webmaster <a href="mailto:{{ webmaster_email }}">{{ webmaster_email }}</a>. Disculpen las molestias.</p>
+
+{% endblock %}

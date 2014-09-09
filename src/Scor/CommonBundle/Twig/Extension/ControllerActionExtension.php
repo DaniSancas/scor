@@ -13,13 +13,13 @@ use Symfony\Component\HttpFoundation\Request;
 class ControllerActionExtension extends \Twig_Extension
 {
     /**
-     * @var Request 
-     */
+         * @var Request
+         */
     protected $request;
 
    /**
-    * @var \Twig_Environment
-    */
+        * @var \Twig_Environment
+        */
     protected $environment;
     
     public function setRequest(Request $request = null)
@@ -41,8 +41,8 @@ class ControllerActionExtension extends \Twig_Extension
     }
 
     /**
-    * Get current controller name
-    */
+        * Get current controller name
+        */
     public function getControllerName()
     {
         if(null !== $this->request)
@@ -57,8 +57,8 @@ class ControllerActionExtension extends \Twig_Extension
     }
 
     /**
-    * Get current action name
-    */
+        * Get current action name
+        */
     public function getActionName()
     {
         if(null !== $this->request)
@@ -67,7 +67,7 @@ class ControllerActionExtension extends \Twig_Extension
             $matches = array();
             preg_match($pattern, $this->request->get('_controller'), $matches);
 
-            return $matches[1];
+            return (isset($matches[1])) ? strtolower($matches[1]) : '';
         }
     }
 
