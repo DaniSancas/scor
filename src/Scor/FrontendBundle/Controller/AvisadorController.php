@@ -46,8 +46,9 @@ class AvisadorController extends Controller
      * Acción llamada desde un enlace desde el email de aviso, para aquellos que no quieran seguir recibiendo alertas.
      *
      * Si la id y el email enviados coinciden, se actualizará la caducidad para que no mande más avisos.
+     * @Template()
      */
-    public function silenciarAction(Request $request)
+    public function desactivarAction(Request $request)
     {
         $id = $request->get('id');
         $email = $request->get('email');
@@ -65,6 +66,6 @@ class AvisadorController extends Controller
             $request->getSession()->getFlashBag()->add('error', 'No se ha podido desactivar el recordatorio de renovación. Inténtelo de nuevo. Si el problema persiste contacte con los administradores. Disculpe las molestias.');
         }
 
-        return $this->redirect($this->generateUrl('homepage'));
+        return array();
     }
 }

@@ -4,5 +4,4 @@ Ha solicitado una cita para el {{ (fecha ~ ", a las " ~ hora) }} con {{ scor_psi
 
 Recuerde que todavía no se ha confirmado la fecha/hora de la cita. Para ello, {{ scor_psico }} se pondrá en contacto con usted.
 
-Reciba un cordial saludo,
-El equipo de {{ scor_psico }}
+{{ include('FrontendBundle:Partial:firmaEmail.txt.twig') }}

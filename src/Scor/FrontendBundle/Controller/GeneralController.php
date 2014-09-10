@@ -121,6 +121,7 @@ class GeneralController extends Controller
 
             if ($form->isValid())
             {
+                // Mensaje para la empresa
                 $message = \Swift_Message::newInstance()
                     ->setSubject('['.$this->container->getParameter('dominio').'] Consulta desde la web')
                     ->setFrom($form->get('email')->getData())
@@ -140,13 +141,30 @@ class GeneralController extends Controller
 
                 $this->get('mailer')->send($message);
 
+                // Mensaje para el cliente
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Consulta a '.$this->container->getParameter('scor_psico'))
+                    ->setFrom($this->container->getParameter('contacto_email'))
+                    ->setTo($form->get('email')->getData())
+                    ->setBody(
+                        $this->renderView(
+                            'FrontendBundle:General:emailRegistroContactoCliente.txt.twig',
+                            array(
+                                'nombre' => $form->get('nombre')->getData(),
+                                'apellidos' => $form->get('apellidos')->getData()
+                            )
+                        )
+                    );
+
+                $this->get('mailer')->send($message);
+
                 $request->getSession()->getFlashBag()->add('ok', 'Se ha enviado su email. Gracias por contactar con nosotros.');
 
                 return $this->redirect($this->generateUrl('contacto'));
             }
         } // @codeCoverageIgnore
 
-        return array('form' => $form->createView(), 'contactoEmail' => $this->container->getParameter('contacto_email'));
+        return array('form' => $form->createView());
     }
 
     /**

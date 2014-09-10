@@ -26,9 +26,11 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        scor_psico: "%scor_psico%"
-        webmaster_email: "%webmaster_email%"
-        dominio: "%dominio%"
+        scor_psico:         "%scor_psico%"
+        webmaster_email:    "%webmaster_email%"
+        dominio:            "%dominio%"
+        contacto_email:     "%contacto_email%"
+        contacto_telefono:  "%contacto_telefono%"
 
 # Assetic Configuration
 assetic:

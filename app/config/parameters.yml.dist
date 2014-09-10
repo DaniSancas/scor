@@ -19,3 +19,4 @@ parameters:
     avisador_email:    ~
     dominio:           ~
     scor_psico:        ~
+    contacto_telefono: ~
