@@ -28,6 +28,7 @@ twig:
     globals:
         scor_psico: "%scor_psico%"
         webmaster_email: "%webmaster_email%"
+        dominio: "%dominio%"
 
 # Assetic Configuration
 assetic:

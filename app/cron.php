@@ -6,6 +6,6 @@ require_once __DIR__.'/AppKernel.php';
 use Scor\CommonBundle\Command\CaducidadCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;;
 
-$application = new Application(new AppKernel("dev", false));
+$application = new Application(new AppKernel("prod", false));
 $application->add(new CaducidadCommand());
 $application->run();

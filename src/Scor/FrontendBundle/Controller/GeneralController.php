@@ -6,9 +6,13 @@ use Scor\CommonBundle\Form\PedirCitaType;
 use Scor\CommonBundle\Library\Util;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 use Scor\CommonBundle\Form\ContactoType;
 
+/**
+ * @Cache(expires="+3 days", maxage="259200", smaxage="259200", public="true")
+ */
 class GeneralController extends Controller
 {
     /**
@@ -26,6 +30,7 @@ class GeneralController extends Controller
      *
      * Si se especifica en la URL qué licencia o permiso queremos seleccionar por defecto, permitimos su ejecución.
      *
+     * @Cache(expires="-1 days", maxage="0", smaxage="0", public="true")
      * @Template()
      */
     public function pedirCitaAction()
@@ -101,6 +106,7 @@ class GeneralController extends Controller
     /**
      * Acción que muestra y procesa el formulario de contacto.
      *
+     * @Cache(expires="-1 days", maxage="0", smaxage="0", public="true")
      * @Template()
      */
     public function contactoAction()
