@@ -28,6 +28,10 @@ body {
     padding-bottom: 25px;
 }
 
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: #CFCFCF;
+}
+
 .overflow{
     overflow: auto;
 }
@@ -42,6 +46,10 @@ body {
 
 .margin-bottom{
     margin-bottom: 20px;
+}
+
+.margin-bottom-grande{
+    margin-bottom: 50px;
 }
 
 .margin-top{
@@ -133,6 +141,11 @@ span.asterisco-requerido{
     width: 120px;
     height: 120px;
     display: inline-block;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 .img-background-60{
@@ -140,6 +153,11 @@ span.asterisco-requerido{
     height: 60px;
     display: inline-block;
     background-size: 60px 60px;
+    -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -ms-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
 }
 
 .img-conducir{
@@ -203,6 +221,67 @@ span.asterisco-requerido{
 .container-peque{
     max-width: 300px;
 }
+
+
+
+
+
+
+.btn-orange {
+    color: #ffffff;
+    background-color: #F27D00;
+    border-color: #E06100;
+}
+
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
+    color: #ffffff;
+    background-color: #FF7F29;
+    border-color: #E06100;
+}
+
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
+    background-image: none;
+}
+
+.btn-orange.disabled,
+.btn-orange[disabled],
+fieldset[disabled] .btn-orange,
+.btn-orange.disabled:hover,
+.btn-orange[disabled]:hover,
+fieldset[disabled] .btn-orange:hover,
+.btn-orange.disabled:focus,
+.btn-orange[disabled]:focus,
+fieldset[disabled] .btn-orange:focus,
+.btn-orange.disabled:active,
+.btn-orange[disabled]:active,
+fieldset[disabled] .btn-orange:active,
+.btn-orange.disabled.active,
+.btn-orange[disabled].active,
+fieldset[disabled] .btn-orange.active {
+    background-color: #F27D00;
+    border-color: #E06100;
+}
+
+.btn-orange .badge {
+    color: #F27D00;
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* RESPONSIVE */
 

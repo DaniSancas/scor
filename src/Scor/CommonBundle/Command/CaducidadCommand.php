@@ -91,7 +91,7 @@ class CaducidadCommand extends ContainerAwareCommand
                                 'fecha' => $caducidad->getFecha()->format('d/m/Y'),
                                 'licencia_permiso' => Util::getLicenciaOPermiso($caducidad->getLicenciaPermiso()),
                                 'link_cita' => 'http://'.$this->getContainer()->getParameter('dominio').$this->getContainer()->get('router')->generate('pedir_cita'),
-                                'link_unsuscribe' => 'http://'.$this->getContainer()->getParameter('dominio').$this->getContainer()->get('router')->generate('silenciar_caducidad', array('id' => $caducidad->getId(), 'email' => $caducidad->getEmail()))
+                                'link_unsuscribe' => 'http://'.$this->getContainer()->getParameter('dominio').$this->getContainer()->get('router')->generate('desactivar_caducidad', array('id' => $caducidad->getId(), 'email' => $caducidad->getEmail()))
                             )
                         )
                     );
