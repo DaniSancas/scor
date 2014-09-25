@@ -25,15 +25,22 @@
 {% endblock %}
 
 {% block default_stylesheets %}
-    <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ asset('bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ asset('bundles/common/css/custom-bootstrap.css') }}" rel="stylesheet" />
+    {% stylesheets filter='?yui_css' output="css/compiled/main.css"
+        'bootstrap/css/bootstrap.min.css'
+        'bootstrap/css/bootstrap-theme.min.css'
+        'bundles/common/css/custom-bootstrap.css'
+        'bundles/common/css/marketing-bootstrap.css' %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
     {% block stylesheets %}{% endblock %}
 {% endblock %}
   
 {% block default_javascripts %}
-    <script src="{{ asset('bundles/common/js/jquery-min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+    {% javascripts filter='?yui_js' output="js/compiled/main.js"
+        '@CommonBundle/Resources/public/js/jquery-min.js'
+        'bootstrap/js/bootstrap.min.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     {% block javascripts %}{% endblock %}
 {% endblock %}
 
@@ -49,7 +56,6 @@
 
             ga('create', 'UA-54656094-1', 'auto');
             ga('send', 'pageview');
-
         </script>
     {% endif %}
 

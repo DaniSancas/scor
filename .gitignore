@@ -3,6 +3,7 @@
 
 /web/bundles/
 /web/uploads/
+/web/compiled/
 /app/config/parameters.yml
 /app/cache/*
 /app/logs/*
