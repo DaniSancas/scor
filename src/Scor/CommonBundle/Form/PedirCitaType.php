@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class PedirCitaType extends AbstractType
 {
@@ -84,11 +85,14 @@ class PedirCitaType extends AbstractType
             'apellidos' => array(),
             'telefono' => array(
                 new NotBlank(array('message' => 'Debe especificar su teléfono.')),
+                new Regex(array(
+                    'pattern' => '/^\+?[0-9\s]+$/',
+                    'message' => 'El teléfono solo puede contener números y espacios',)),
                 new Length(array(
                     'min' => 9,
-                    'max' => 15,
-                    'minMessage' => 'Nombre demasiado corto. Debe contener {{ limit }} caracteres como mínimo.',
-                    'maxMessage' => 'Nombre demasiado largo. Debe contener {{ limit }} caracteres como máximo.'
+                    'max' => 18,
+                    'minMessage' => 'Teléfono demasiado corto. Debe contener {{ limit }} caracteres como mínimo.',
+                    'maxMessage' => 'Teléfono demasiado largo. Debe contener {{ limit }} caracteres como máximo.'
                 ))
             ),
             'email' => array(
