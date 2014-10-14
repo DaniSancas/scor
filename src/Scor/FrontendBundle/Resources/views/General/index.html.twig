@@ -8,15 +8,17 @@
         </div>
         <div class="float-left margin-left">
             <h1 class="no-margin-top">«S.C.O.R.»</h1>
-            <h2>Centro médico y psicotécnico</h2>
-            <h3>Centro oficial de reconocimientos situado en Santutxu 7, 2º-B, (48004) Bilbao</h3>
+            <h2>Centro oficial médico y psicotécnico</h2>
+            <h3><strong>C/ Santutxu 7, 2º-B, (48004) Bilbao</strong></h3>
             <div class="overflow margin-top">
                 <p>Horario: L-V 09:30 - 13:00 / 16:30 - 19:30</p>
-                <p>{{ contacto_telefono }} / {{ contacto_email }}</p>
-                <p>Todos los permisos y licencias.</p>
             </div>
-            <p><a href="{{ path('pedir_cita') }}" class="btn btn-lg btn-success" role="button">Pedir cita</a></p>
+            <p class="no-margin-bottom"><a href="{{ path('pedir_cita') }}" class="btn btn-lg btn-success" role="button">Pedir cita online</a> o telefónica: <strong>{{ contacto_telefono }}</strong></p>
         </div>
+
+        {# <div class="overflow float-right">
+            <img src="{{ asset('bundles/common/images/slogan.png') }}" />
+        </div> #}
     </div>
 
     <div class="container marketing">

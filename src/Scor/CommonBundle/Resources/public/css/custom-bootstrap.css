@@ -69,7 +69,7 @@ body {
 }
 
 .no-margin-bottom{
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
 }
 
 .no-padding{
@@ -99,6 +99,14 @@ body {
 
 .texto-medio-grande{
     font-size: 1.2em;
+}
+
+.div-text-justify p{
+    text-align: justify;
+}
+
+.text-justify{
+    text-align: justify;
 }
 
 ul.errors.col-lg-12{

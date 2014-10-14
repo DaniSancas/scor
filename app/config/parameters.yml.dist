@@ -20,3 +20,4 @@ parameters:
     dominio:           ~
     scor_psico:        ~
     contacto_telefono: ~
+    contacto_movil:    ~

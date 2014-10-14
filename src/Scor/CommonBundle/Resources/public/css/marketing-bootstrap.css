@@ -33,6 +33,10 @@
     background-position: top right;
 }
 
+.marketing p{
+    text-align: justify;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
