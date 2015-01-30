@@ -68,7 +68,7 @@ class DateToSpanishDateTransformer implements DataTransformerInterface
         
         try{
             $date = new \DateTime(sprintf("%04d", $year).'-'.sprintf("%02d", $month).'-'.sprintf("%02d", $day));
-        }catch(Exception $e){
+        }catch(\Exception $e){
             throw new TransformationFailedException($e->getMessage());
         }
         

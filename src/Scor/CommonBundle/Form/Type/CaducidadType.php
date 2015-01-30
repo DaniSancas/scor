@@ -1,12 +1,11 @@
 <?php
 
-namespace Scor\CommonBundle\Form;
+namespace Scor\CommonBundle\Form\Type;
 
 use Scor\CommonBundle\Library\Util;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\Collection;
 use Scor\CommonBundle\Form\DataTransformer\DateToSpanishDateTransformer;
 
 class CaducidadType extends AbstractType

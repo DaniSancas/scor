@@ -3,7 +3,7 @@
 namespace Scor\FrontendBundle\Controller;
 
 use Scor\CommonBundle\Entity\Caducidad;
-use Scor\CommonBundle\Form\CaducidadType;
+use Scor\CommonBundle\Form\Type\CaducidadType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
