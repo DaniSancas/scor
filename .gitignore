@@ -1,7 +1,7 @@
-/nbproject
 /.idea
 /.mage
 
+/app/bootstrap.php.cache
 /web/bundles/
 /web/uploads/
 /web/compiled/
@@ -13,7 +13,4 @@
 /vendor/
 /bin/
 /composer.phar
-/Capfile
-*deploy.rb
-.rsync*
 *.*~
