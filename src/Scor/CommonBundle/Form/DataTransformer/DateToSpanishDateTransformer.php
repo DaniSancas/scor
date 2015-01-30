@@ -28,7 +28,7 @@ class DateToSpanishDateTransformer implements DataTransformerInterface
             $day    = intval($date->format("d"));
             $month  = intval($date->format("m"));
             $year   = intval($date->format("Y"));
-        }catch(Exception $e){
+        }catch(\Exception $e){
             throw new TransformationFailedException($e->getMessage());
         }        
         

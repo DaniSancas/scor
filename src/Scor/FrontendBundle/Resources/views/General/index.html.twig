@@ -160,13 +160,27 @@
     $.preloadImages("conducir", "armas", "seguridad", "animales", "nautica", "gruas");
 
     var selectorLB = 'a.image-lightbox';
-    var instanceLB = $( selectorLB ).imageLightbox({
-        animationSpeed: 250,
-        preloadNext:    true,
-        enableKeyboard: true,
-        onStart: 	 function() { overlayOn(); arrowsOn(instanceLB, selectorLB); },
-        onEnd:	 	 function() { arrowsOff(); overlayOff(); activityIndicatorOff(); },
-        onLoadStart: function() { activityIndicatorOn(); },
-        onLoadEnd:	 function() { $( '.imagelightbox-arrow' ).css( 'display', 'block' ); activityIndicatorOff(); }
-    });
+    if($(window).width() >= 992) {
+        // Escritorio
+        var instanceLB = $(selectorLB).imageLightbox({
+            animationSpeed: 250,
+            preloadNext:    true,
+            enableKeyboard: true,
+            onStart: 	 function() { overlayOn(); arrowsOn(instanceLB, selectorLB); },
+            onEnd:	 	 function() { arrowsOff(); overlayOff(); activityIndicatorOff(); },
+            onLoadStart: function() { activityIndicatorOn(); },
+            onLoadEnd:	 function() { $('.imagelightbox-arrow').css('display', 'block'); activityIndicatorOff(); }
+        });
+    }else{
+        // Móviles & Tablets
+        $(selectorLB).imageLightbox({
+            animationSpeed: 250,
+            preloadNext:    true,
+            enableKeyboard: true,
+            onStart: 	 function() { overlayOn();},
+            onEnd:	 	 function() { overlayOff(); activityIndicatorOff(); },
+            onLoadStart: function() { activityIndicatorOn(); },
+            onLoadEnd:	 function() { activityIndicatorOff(); }
+        });
+    }
 {% endblock documentReady %}
