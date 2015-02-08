@@ -2,14 +2,14 @@
 
 
 {% block stylesheets %}
-    {% stylesheets filter='?yui_css' output="css/compiled/lightbox.css"
+    {% stylesheets filter='?uglifycss' output="css/compiled/lightbox.css"
     'bundles/common/css/galeria.css' %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
     {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
-    {% javascripts filter='?yui_js' output="js/compiled/lightbox.js"
+    {% javascripts filter='?uglifyjs2' output="js/compiled/lightbox.js"
     'bundles/common/js/lightbox-min.js'
     'bundles/common/js/lightbox.options.js'%}
     <script src="{{ asset_url }}"></script>
@@ -19,22 +19,24 @@
 {% block content %}
 
     <div class="overflow jumbotron">
-        <div class="float-left">
-            <img src="{{ asset('bundles/common/images/logo.png') }}" title="S.C.O.R. - Centro médico y psicotécnico" alt="S.C.O.R. - Centro médico y psicotécnico">
-        </div>
-        <div class="float-left margin-left">
-            <h1 class="no-margin-top">«S.C.O.R.»</h1>
-            <h2>Centro oficial médico y psicotécnico</h2>
-            <h3><strong>C/ Santutxu 7, 2º-B, (48004) Bilbao</strong></h3>
-            <div class="overflow margin-top">
-                <p>Horario: L-V 09:30 - 13:00 / 16:30 - 19:30</p>
+        <div class="container-dos-tercios overflow float-left">
+            <div class="float-left">
+                <img src="{{ asset('bundles/common/images/logo.png') }}" title="S.C.O.R. - Centro médico y psicotécnico" alt="S.C.O.R. - Centro médico y psicotécnico">
             </div>
-            <p class="no-margin-bottom"><a href="{{ path('pedir_cita') }}" class="btn btn-lg btn-success" role="button">Pedir cita online</a> o telefónica: <strong>{{ contacto_telefono }}</strong></p>
+            <div class="float-left margin-left">
+                <h1 class="no-margin-top">«S.C.O.R.»</h1>
+                <h2>Centro oficial médico y psicotécnico</h2>
+                <h3><strong>C/ Santutxu 7, 2º-B, (48004) Bilbao</strong></h3>
+                <div class="overflow margin-top">
+                    <p>Horario: L-V 09:30 - 13:00 / 16:30 - 19:30</p>
+                </div>
+                <p class="no-margin-bottom"><a href="{{ path('pedir_cita') }}" class="btn btn-lg btn-success" role="button">Pedir cita online</a> o telefónica: <strong>{{ contacto_telefono }}</strong></p>
+            </div>
         </div>
 
-        {# <div class="overflow float-right">
-            <img src="{{ asset('bundles/common/images/slogan.png') }}" />
-        </div> #}
+         <div class="slogan-vertical-responsive">
+             <a href="{{ path('pedir_cita') }}" class="btn btn-lg btn-orange" role="button">Tramitación gratuita <br />y en el acto, sin ir a <br />Tráfico</a>
+        </div>
     </div>
 
     <div class="container marketing">

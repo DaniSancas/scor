@@ -15,7 +15,7 @@
 {% block title %}Pedir cita{% endblock %}
 
 {% block stylesheets %}
-    {% stylesheets filter='?yui_css' output="css/compiled/datetime-picker.css"
+    {% stylesheets filter='?uglifycss' output="css/compiled/datetime-picker.css"
         'pickdate/css/default.css'
         'pickdate/css/default.date.css'
         'pickdate/css/default.time.css' %}
@@ -24,7 +24,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    {% javascripts filter='?yui_js' output="js/compiled/datetime-picker.js"
+    {% javascripts filter='?uglifyjs2' output="js/compiled/datetime-picker.js"
         'pickdate/js/picker.js'
         'pickdate/js/picker.date.js'
         'pickdate/js/picker.time.js'

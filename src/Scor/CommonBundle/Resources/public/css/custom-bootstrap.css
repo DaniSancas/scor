@@ -334,6 +334,12 @@ fieldset[disabled] .btn-orange.active {
     #header{
         float: none;
     }
+
+    .slogan-vertical-responsive {
+        padding: 25px 0 5px 0;
+        overflow: auto;
+        float: left;
+    }
 }
 @media (min-width: 768px)  {
     .container-half{
@@ -374,6 +380,12 @@ fieldset[disabled] .btn-orange.active {
     #header-wrapper{
         font-size: 85%;
     }
+
+    .slogan-vertical-responsive {
+        padding: 25px 175px 5px 175px;
+        overflow: auto;
+        float: left;
+    }
 }
 
 @media (min-width: 992px) {
@@ -410,6 +422,12 @@ fieldset[disabled] .btn-orange.active {
 
     #header-wrapper{
         font-size: 100%;
+    }
+
+    .slogan-vertical-responsive {
+        padding: 25px 300px;
+        overflow: auto;
+        float: left;
     }
 }
 
@@ -450,6 +468,11 @@ fieldset[disabled] .btn-orange.active {
     }
 
     .float-right.text-center.container-un-tercio{
+        float: right;
+    }
+
+    .slogan-vertical-responsive {
+        padding: 150px 25px 25px 25px;
         float: right;
     }
 }
