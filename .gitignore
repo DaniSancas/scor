@@ -14,5 +14,6 @@
 /bin/
 /web/css/*
 /web/js/*
+/phpunit-coverage/
 /composer.phar
 *.*~

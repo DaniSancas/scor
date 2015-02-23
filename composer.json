@@ -18,11 +18,13 @@
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
-        "incenteev/composer-parameter-handler": "~2.0",
-        "phpunit/phpunit": "~4.1"
+        "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
-        "andres-montanez/magallanes": "~1.0.3"
+        "andres-montanez/magallanes": "~1.0.3",
+        "phpunit/phpunit": "~3.7",
+        "phpunit/php-code-coverage": "~1.2",
+        "phpunit/php-token-stream": "~1.2"
     },
     "scripts": {
         "post-install-cmd": [
