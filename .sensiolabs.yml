@@ -6,7 +6,7 @@ rules:
     twig.template_too_complex:
         enabled: true
         max_depth: 20
-    third_party.use_deprecated_class:
-        enabled: false
     third_party.use_deprecated_service:
+        enabled: false
+    symfony.controller.get_action_mutates_resource:
         enabled: false
