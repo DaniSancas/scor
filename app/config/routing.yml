@@ -1,7 +1,3 @@
 frontend:
-    resource: "@FrontendBundle/Resources/config/routing.yml"
-    prefix:   /
-
-common:
-    resource: "@CommonBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@FrontendBundle/Controller"
+    type:     annotation

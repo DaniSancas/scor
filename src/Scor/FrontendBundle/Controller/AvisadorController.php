@@ -4,15 +4,25 @@ namespace Scor\FrontendBundle\Controller;
 
 use Scor\CommonBundle\Entity\Caducidad;
 use Scor\CommonBundle\Form\Type\CaducidadType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class AvisadorController
+ * @package Scor\FrontendBundle\Controller
+ *
+ * @Route("/avisador-caducidad")
+ */
 class AvisadorController extends Controller
 {
     /**
      * Acción que muestra la página de inserción de licencias para el aviso de su caducidad.
      *
+     * @Route("/registrar", name="registrar_caducidad")
+     * @Method(methods={"GET", "POST"})
      * @Template()
      */
     public function registrarAction()
@@ -46,7 +56,10 @@ class AvisadorController extends Controller
      * Acción llamada desde un enlace desde el email de aviso, para aquellos que no quieran seguir recibiendo alertas.
      *
      * Si la id y el email enviados coinciden, se actualizará la caducidad para que no mande más avisos.
+     *
      * @Template()
+     * @Route("/unsuscribe", name="desactivar_caducidad")
+     * @Method(methods={"GET"})
      */
     public function desactivarAction(Request $request)
     {

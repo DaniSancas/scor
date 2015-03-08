@@ -18,7 +18,7 @@
 
         {% form_theme form 'CommonBundle:Form:fields_bootstrap_h.html.twig' %}
 
-        <form class="form-horizontal no-readonly" action="{{path("registrar_caducidad_submit")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
+        <form class="form-horizontal no-readonly" action="{{path("registrar_caducidad")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
             {{ form_widget(form) }}
             <div class="form-group">
                 <label class="col-lg-3 control-label"></label>

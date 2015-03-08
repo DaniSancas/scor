@@ -4,6 +4,8 @@ namespace Scor\FrontendBundle\Controller;
 
 use Scor\CommonBundle\Form\Type\PedirCitaType;
 use Scor\CommonBundle\Library\Util;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
@@ -11,6 +13,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Scor\CommonBundle\Form\Type\ContactoType;
 
 /**
+ * Class GeneralController
+ * @package Scor\FrontendBundle\Controller
+ *
  * @Cache(expires="+3 days", maxage="259200", smaxage="259200", public="true")
  */
 class GeneralController extends Controller
@@ -18,6 +23,8 @@ class GeneralController extends Controller
     /**
      * Acción que muestra la página de inicio.
      *
+     * @Route("/", name="homepage")
+     * @Method(methods={"GET"})
      * @Template()
      */
     public function indexAction()
@@ -31,6 +38,8 @@ class GeneralController extends Controller
      * Si se especifica en la URL qué licencia o permiso queremos seleccionar por defecto, permitimos su ejecución.
      *
      * @Cache(expires="-1 days", maxage="0", smaxage="0", public="true")
+     * @Route("/pedir-cita", name="pedir_cita")
+     * @Method(methods={"GET", "POST"})
      * @Template()
      */
     public function pedirCitaAction()
@@ -107,6 +116,8 @@ class GeneralController extends Controller
      * Acción que muestra y procesa el formulario de contacto.
      *
      * @Cache(expires="-1 days", maxage="0", smaxage="0", public="true")
+     * @Route("/contacto", name="contacto")
+     * @Method(methods={"GET", "POST"})
      * @Template()
      */
     public function contactoAction()
@@ -170,6 +181,8 @@ class GeneralController extends Controller
     /**
      * Acción que muestra la página de términos y condiciones de uso.
      *
+     * @Route("/terminos-condiciones-uso", name="terminos_condiciones")
+     * @Method(methods={"GET"})
      * @Template()
      */
     public function terminosCondicionesAction()
@@ -180,6 +193,8 @@ class GeneralController extends Controller
     /**
      * Acción que muestra la página del sitemap.
      *
+     * @Route("/sitemap", name="sitemap")
+     * @Method(methods={"GET"})
      * @Template()
      */
     public function sitemapAction()
