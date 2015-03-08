@@ -2,11 +2,11 @@
 
 rules:
     symfony.obvious_csrf_key:
-        enabled: true
+        enabled: false
     twig.template_too_complex:
         enabled: true
         max_depth: 20
     third_party.use_deprecated_class:
-        enabled: true
+        enabled: false
     third_party.use_deprecated_service:
-        enabled: true
+        enabled: false
