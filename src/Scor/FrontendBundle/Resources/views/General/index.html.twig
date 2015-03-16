@@ -2,16 +2,18 @@
 
 
 {% block stylesheets %}
-    {% stylesheets filter='?uglifycss' output="css/compiled/lightbox.css"
+    {% stylesheets filter='?uglifycss' output="css/compiled/effects.css"
+    'bundles/common/css/flexslider.css'
     'bundles/common/css/galeria.css' %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
     {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
-    {% javascripts filter='?uglifyjs2' output="js/compiled/lightbox.js"
+    {% javascripts filter='?uglifyjs2' output="js/compiled/effects.js"
     'bundles/common/js/lightbox-min.js'
-    'bundles/common/js/lightbox.options.js'%}
+    'bundles/common/js/lightbox.options.js'
+    'bundles/common/js/jquery.flexslider-min.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
@@ -39,6 +41,47 @@
              <a href="{{ path('pedir_cita') }}" class="btn btn-lg btn-orange" role="button">Tramitación gratuita <br />y en el acto, sin ir a <br />Tráfico</a>
         </div>
     </div>
+
+
+    <div class="overflow">
+
+        <div class="overflow container-dos-tercios float-left">
+
+            <h2>{{ scor_psico }}</h2>
+
+            <p>El centro médico y psicotécnico de reconocimientos {{ scor_psico }} se encuentra ubicado en el centro de Santutxu desde 1984. Avalados por 30 años de experiencia, ponemos a su disposición el equipo profesional de oftalmología, medicina y psicología necesarios para la obtención y renovación de las siguientes licencias y permisos:</p>
+
+            <ul>
+                <li>Carnet de conducir</li>
+                <li>Permisos de armas</li>
+                <li>Permisos de animales potencialmente peligrosos</li>
+                <li>Licencias de marina</li>
+                <li>Licencias de seguridad privada</li>
+                <li>Licencias de grúa</li>
+            </ul>
+
+            <p>Disponemos de un servicio de cita previa automatizado en este sitio web para su mayor comodidad. Nuestro equipo profesional le ofrecerá una atención amable y diligente.</p>
+
+        </div>
+
+        <div class="overflow float-left">
+            <div class="flexslider-wrapper">
+            <div class="flexslider">
+                <ul class="slides">
+                    {% for i in 0..11 %}
+                    <li>
+                        <a href="{{ asset('bundles/common/images/galeria/scor_'~i~'.jpg') }}" rel="image-lightbox" class="image-lightbox" title="">
+                            <img src="{{ asset('bundles/common/images/galeria/scor_th_'~i~'.gif') }}" alt="" />
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
 
     <div class="container marketing">
         <div class="row">
@@ -109,47 +152,6 @@
         </div>
     </div>
 
-    <hr />
-
-    <div class="overflow">
-
-        <h2>Quiénes somos</h2>
-
-        <div class="overflow container-dos-tercios float-left">
-            <p>El centro médico y psicotécnico de reconocimientos {{ scor_psico }} se encuentra ubicado en el centro de Santutxu desde 1984. Avalados por 30 años de experiencia, ponemos a su disposición el equipo profesional de oftalmología, medicina y psicología necesarios para la obtención y renovación de las siguientes licencias y permisos:</p>
-
-            <ul>
-                <li>Carnet de conducir</li>
-                <li>Permisos de armas</li>
-                <li>Permisos de animales potencialmente peligrosos</li>
-                <li>Licencias de marina</li>
-                <li>Licencias de seguridad privada</li>
-                <li>Licencias de grúa</li>
-            </ul>
-
-            <p>Disponemos de un servicio de cita previa automatizado en este sitio web para su mayor comodidad. Nuestro equipo profesional le ofrecerá una atención amable y diligente.</p>
-
-        </div>
-
-        <div class="container-un-tercio float-right text-center">
-            <img src="{{ asset('bundles/common/images/iconos/quienes-somos.png') }}" alt="Quiénes somos" title="Quiénes somos">
-
-        </div>
-    </div>
-
-    <div id="galeria-wrapper" class="galeria container">
-
-        {% for i in 1..11 %}
-        <div class="foto-wrapper">
-            <a href="{{ asset('bundles/common/images/galeria/'~i~'.jpg') }}" rel="image-lightbox" class="image-lightbox" title="">
-                <img src="{{ asset('bundles/common/images/galeria/th_'~i~'.jpg') }}" alt="" />
-            </a>
-        </div>
-        {% endfor %}
-
-    </div>
-
-
 {% endblock %}
 
 {% block documentReady %}
@@ -161,6 +163,14 @@
     }
 
     $.preloadImages("conducir", "armas", "seguridad", "animales", "nautica", "gruas");
+
+    $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+            $('body').removeClass('loading');
+        }
+    });
+
 
     var selectorLB = 'a.image-lightbox';
     if($(window).width() >= 992) {

@@ -320,8 +320,14 @@ fieldset[disabled] .btn-orange.active {
 
 
 /* RESPONSIVE */
+@media (max-width: 419px) {
 
-@media (max-width: 767px) {
+    .flexslider-wrapper{
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 420px) {
 
     #content.container{
         font-size: 125%;

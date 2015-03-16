@@ -15,12 +15,13 @@ div.galeria .foto-wrapper{
     background: #EEE;
 }
 
-div.galeria .foto-wrapper a{
-    width: 150px;
-    height: 150px;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+.flexslider-wrapper{
+    width: 375px;
+    padding: 0 50px;
+}
+
+.flex-control-nav li {
+    margin: 0 5px;
 }
 
 div.galeria .foto-wrapper img{
