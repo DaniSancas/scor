@@ -1,0 +1,42 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block description_metatag %}
+    Formulario que permite a un usuario introducir los datos de sus licencias y permisos para que {{ scor_psico }} le avise cuando vayan a caducar.
+{% endblock %}
+
+{% block keywords_metatag %}
+    Avisar, renovar, caducidad, renovación, licencia, permiso, carnet, email, alerta, automático, fecha, datos, expirar
+{% endblock %}
+
+{% block title %}Avisador de caducidad{% endblock %}
+
+{% block content %}
+
+    <div class="float-left container-dos-tercios">
+        <h2>Avisador de caducidad</h2>
+        <h4>Introduzca la fecha de caducidad de su licencia y le avisaremos para la renovación.</h4>
+
+        {% form_theme form 'AppBundle:Form:fields_bootstrap_h.html.twig' %}
+
+        <form class="form-horizontal no-readonly" action="{{path("registrar_caducidad")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
+            {{ form_widget(form) }}
+            <div class="form-group">
+                <label class="col-lg-3 control-label"></label>
+                <div class="col-lg-9">
+                    <button type="submit" class="btn btn-lg btn-success">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="float-right container-un-tercio text-center">
+        <h2 class="">Alertas vía email</h2>
+
+        <p><img src="{{ asset('bundles/app/images/iconos/caducidad.png') }}" alt="Avisador de caducidad" /></p>
+
+        <p class="texto-gris-oscuro texto-medio-grande">Gracias a nuestro avisador de caducidad, será informado automaticamente vía email cuando su licencia o permiso esté próximo a expirar.</p>
+        <p class="texto-gris-oscuro texto-medio-grande">Asegúrese de que recibe nuestros emails, añada {{ avisadorEmail }} a sus contactos o libreta de direcciones.</p>
+        <p class="texto-gris-oscuro texto-medio-grande">Si tiene alguna duda puede contactar con nosotros: <br />Email: {{ contacto_email }} <br />Teléfono: {{ contacto_telefono }} / {{ contacto_movil }}</p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+Hola {{ (nombre ~ ((apellidos) ? (" " ~ apellidos) : '')) }},
+
+Ha solicitado una cita para el {{ (fecha ~ ", a las " ~ hora) }} con {{ scor_psico }} con motivo de la {{ operacion|lower }} de la licencia/permiso "{{ licencia_permiso }}".
+
+Recuerde que todavía no se ha confirmado la fecha/hora de la cita. Para ello, {{ scor_psico }} se pondrá en contacto con usted.
+
+{{ include('AppBundle:Partial:firmaEmail.txt.twig') }}

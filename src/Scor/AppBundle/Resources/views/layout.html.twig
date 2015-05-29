@@ -1,0 +1,82 @@
+{% extends "::base.html.twig" %}
+
+{% block extra_metatags %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% spaceless %}
+    {% if block('description_metatag') %}
+        {% block description_metatag %}{% endblock %}
+    {% else %}
+        S.C.O.R. - Centro médico y psicotécnico situado en C/ Santutxu 7, 2º- B (Bilbao) desde hace 30 años. Obtención y renovación de todos los permisos y licencias.
+    {% endif %}
+    {% endspaceless %}">
+    <meta name="keywords" content="{% spaceless %}
+    {% if block('keywords_metatag') %}
+        {% block keywords_metatag %}{% endblock %}
+    {% else %}
+        Psicotécnicos, Santutxu, renovar, carnet, licencia, permiso, conducir, animales peligrosos, armas, seguridad, grúas, náutica, marina, centro médico, Bilbao
+    {% endif %}
+    {% endspaceless %}">
+    <meta name="author" content="Dani Sancas">
+    {% if block('canonical_url') %}
+        {% block canonical_url %}{% endblock %}
+    {% else %}
+        <link rel="canonical" href="{{ app.request.uri }}" />
+    {% endif %}
+{% endblock %}
+
+{% block default_stylesheets %}
+    {% stylesheets filter='?uglifycss' output="css/compiled/main.css"
+        'bootstrap/css/bootstrap.min.css'
+        'bootstrap/css/bootstrap-theme.min.css'
+        'bundles/app/css/custom-bootstrap.css'
+        'bundles/app/css/marketing-bootstrap.css' %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {% block stylesheets %}{% endblock %}
+{% endblock %}
+  
+{% block default_javascripts %}
+    {% javascripts filter='?uglifyjs2' output="js/compiled/main.js"
+        '@AppBundle/Resources/public/js/jquery-min.js'
+        'bootstrap/js/bootstrap.min.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% block javascripts %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    {% if app.environment == 'prod' %}
+    {# Analytics #}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-54656094-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    {% endif %}
+
+    {% include 'AppBundle::header.html.twig' %}
+
+    <div class="container" id="content">
+        {% include 'AppBundle::flash.html.twig' %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include 'AppBundle::footer.html.twig' %}
+
+{% endblock %}
+
+{% block extra_body %}
+    {% if block('documentReady') %}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                {% block documentReady %}{% endblock documentReady %}
+            });
+        </script>
+    {% endif %}
+{% endblock %}

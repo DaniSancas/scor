@@ -40,7 +40,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: true
-    bundles:        [ CommonBundle, FrontendBundle ]
+    bundles:        [ AppBundle ]
     node: /usr/bin/nodejs
     filters:
         uglifyjs2:

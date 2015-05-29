@@ -1,0 +1,109 @@
+{% extends "AppBundle:Licencia:layout.html.twig" %}
+
+{% block description_metatag %}
+    Obtención y renovación de permisos para todas las categorías de armas de fuego, antiguas o históricas, armas blancas y de captura o control de animales.
+{% endblock %}
+
+{% block keywords_metatag %}
+    Obtener, renovar, permiso, licencia, armas, fuego, caza, arma blanca, vigilancia, largas rayadas, antiguas, históricas, captura, control, anestésicas, Santutxu, Bilbao
+{% endblock %}
+
+{% block title_preffix %}Permiso de armas{% endblock %}
+
+{% block inner_content %}
+    <div class="overflow">
+        <h1>Permiso de Armas</h1>
+
+        <p class="margin-top"><a href="{{ path('pedir_cita', {'licencias_permisos': 'armas'}) }}" class="btn btn-s btn-success" role="button">Pedir cita</a> para obtener o renovar el Permiso de Armas.</p>
+
+    </div>
+
+    <div class="overflow">
+        <div class="container-half float-left">
+            <h2>Indispensable para...</h2>
+
+            <p>Deberán someterse a reconocimiento médico y psicotécnico las personas que deseen obtener o renovar la licencia de armas las siguientes personas:</p>
+            <ul>
+                <li>Cazadores. </li>
+                <li>Vigilantes de seguridad que lleven arma. </li>
+                <li>Guardas de campo. </li>
+                <li>Policía. </li>
+                <li>Guardia Civil. </li>
+                <li>Personas que tengan un arma como defensa personal. </li>
+            </ul>
+        </div>
+        <div class="container-half float-right">
+            <h2>Documentación necesaria</h2>
+
+            <ul>
+                <li>Únicamente el D.N.I. </li>
+                <li>Todos los impresos que necesitan para renovar el permiso de armas se los facilitamos en las oficinas de {{ scor_psico }}, sin coste alguno. </li>
+                <li>La fotografía la hacemos gratis en nuestras oficinas. </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="overflow">
+        <h2>Más información acerca del permiso de Armas</h2>
+        <p>De conformidad con la Ley Orgánica 1/1992, este reglamento regula los requisitos sobre la tenencia de armas. A los efectos del presente reglamento se entenderá por armas teniendo en cuenta sus características, grado de peligrosidad y destino o utilización. Se enumeran y clasifican en las siguientes categorías:</p>
+        <ul>
+            <li>1ª categoría:
+                <ul>
+                    <li><strong>Armas de fuego cortas</strong>: Serían las pistolas y los revólveres. </li>
+                </ul>
+            </li>
+            <li>2ª categoría:
+                <ul>
+                    <li><strong>Armas de fuego largas</strong> para vigilancia. Son las armas largas que determinadas por el Ministerio del Interior, son especificas para desempeñar funciones de vigilancia. </li>
+                    <li>Armas de fuego largas rayadas: Se comprenden aquellas armas utilizables para caza mayor. También comprenden los cañones estriados adaptables a escopetas de caza con recámara para cartuchos, siempre que no estén clasificadas como armas de guerra. </li>
+                </ul>
+            </li>
+            <li>3ª categoría:
+                <ul>
+                    <li>Armas de fuego largas rayadas para <strong>tiro deportivo</strong>, de calibre 5,6 milímetros, de percusión anular, bien sean de un disparo, bien de repetición o semiautomáticas. </li>
+                    <li>Escopetas y demás armas de fuego largas de anima lisa, o que tengan cañón con rayas para facilitar el plomeo, que los bancos de pruebas reconocidas hayan marcado con punzón de escopeta de caza, no incluidas entre las armas de guerra. </li>
+                    <li>Armas accionadas por aire u otro gas comprimido, sean lisas o rayadas, siempre que la energía cinética del proyectil en boca no exceda de 24,2 julios. </li>
+                </ul>
+            </li>
+            <li>4ª categoría:
+                <ul>
+                    <li>Carabinas y pistolas de <strong>tiro semiautomático y de repetición</strong>. Revólveres de doble acción, accionadas por aire u otro gas comprimido no asimiladas a escopetas. </li>
+                    <li>Carabinas y pistolas, de ánima lisa o rayada, y de un solo tiro. Revólveres de acción simple, accionadas por aire u otro gas comprimido no asimiladas a escopetas. </li>
+                </ul>
+            </li>
+            <li>5ª categoría:
+                <ul>
+                    <li>Las <strong>armas blancas</strong> en general las de hoja cortante o punzante no prohibidas. </li>
+                    <li>Los cuchillos o machetes usados por unidades militares o que sean imitación de los mismos. </li>
+                </ul>
+            </li>
+            <li>6ª categoría:
+                <ul>
+                    <li><strong>Armas de fuego antiguas o históricas</strong>, sus reproducciones y asimiladas, conservadas en museos autorizados por el Ministerio de Defensa o autorizadas por el Ministerio del Interior. </li>
+                    <li>Las Armas de fuego cuyo modelo o cuyo año de fabricación sean anteriores al 1 de Enero de 1890, las reproducciones y replicas de las mismas, a menos que puedan disparar municiones destinadas a armas de guerra o a armas prohibidas. </li>
+                    <li><strong>Nota:</strong> La antigüedad será fijada por el Ministerio de Defensa, que aprobará los prototipos o copias de los originales, comunicándolo a la Dirección General de la Policía y de la Guardia Civil. </li>
+                    <li>Las restantes armas de fuego que se conserven por su carácter histórico o artístico, dando cumplimiento a lo prevenido en los artículos 107 y 108 del presente Reglamento. </li>
+                    <li>En general, las armas de avancarga. </li>
+                </ul>
+            </li>
+            <li>7ª categoría:
+                <ul>
+                    <li>Armas de <strong>inyección anestésica</strong> capaces de lanzar proyectiles que faciliten la <strong>captura o control de animales</strong>, anestesiándolos a distancia durante algún tiempo. </li>
+                    <li>Las ballestas. </li>
+                    <li>Las armas para lanzar cabos. </li>
+                    <li>Las armas de sistema “Flobert”. </li>
+                    <li>Los arcos, las armas para lanzar líneas de pesca y fusiles de pesca submarina que sirven para disparar flechas o arpones, eficaces para la pesca y para otros fines deportivos. </li>
+                    <li>Los revólveres o pistolas detonadoras y las pistolas lanza bengalas. </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="margin-top"><a href="{{ path('pedir_cita', {'licencias_permisos': 'armas'}) }}" class="btn btn-s btn-success" role="button">Pedir cita</a> para obtener o renovar el Permiso de Armas.</p>
+    </div>
+{% endblock %}
+
+
+
+

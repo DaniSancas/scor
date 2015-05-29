@@ -1,0 +1,62 @@
+{% extends "AppBundle:Licencia:layout.html.twig" %}
+
+{% block description_metatag %}
+    Obtener o renovar permiso de animales potencialmente peligrosos domésticos o de compañía. Requisitos para la tenencia de animales peligrosos.
+{% endblock %}
+
+{% block keywords_metatag %}
+    Obtener, renovar, permiso, animales, peligrosos, pit bull, Staffordshire, terrier, Rottweiler, Dogo Argentino, Fila Brasileiro, Tosa, Akita, Inu, Santutxu, Bilbao
+{% endblock %}
+
+{% block title_preffix %}Animales peligrosos{% endblock %}
+
+{% block inner_content %}
+
+    <div class="overflow">
+        <h1>Permiso de Animales peligrosos</h1>
+
+        <p class="margin-top"><a href="{{ path('pedir_cita', {'licencias_permisos': 'perros'}) }}" class="btn btn-s btn-success" role="button">Pedir cita</a> para obtener o renovar el Permiso de Animales Peligrosos.</p>
+
+    </div>
+
+    <div class="overflow">
+        <div class="container-half float-left">
+            <h2>Requisitos</h2>
+
+            <ul>
+                <li>Ser mayor de edad. </li>
+                <li>No poseer antecedentes penales. </li>
+                <li>Se deberá también poseer un seguro de responsabilidad por daños a terceros. </li>
+                <li>Certificado médico que demuestre la aptitud física y psicológica para poder tener uno de estos animales. Se otorgará en nuestro centro una vez realizadas las pruebas médicas y psicotécnicas pertinentes. </li>
+            </ul>
+        </div>
+        <div class="container-half float-right">
+            <h2>Documentación necesaria</h2>
+
+            <ul>
+                <li>Únicamente el D.N.I. </li>
+                <li>La fotografía la hacemos gratis en nuestras oficinas. </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="overflow">
+        <h2>Más información acerca del permiso de Animales peligrosos</h2>
+
+        <p>Tendrán la calificación de potencialmente peligrosos los animales domésticos o de compañía que reglamentariamente se determinen. En particular, los pertenecientes a la especie canina incluidos dentro de una tipología racial que, por su carácter agresivo, tamaño o potencia de mandíbula tengan capacidad de causar daños a personas, animales o daños a las cosas, así como los que pertenezcan a especies o razas que puedan causar dicho daño. </p>
+        <p>A nivel jurídico la ley 50/1999 de 23 de diciembre estableció, sobre la Tenencia de Animales Potencialmente peligrosos son considerados animales potencialmente peligrosos, las siguientes razas: <p>
+
+        <ul>
+            <li>Pit Bull Terrier. </li>
+            <li>Staffordshire Bull Terrier. </li>
+            <li>American Staffordshire Terrier. </li>
+            <li>Rottweiler. </li>
+            <li>Dogo Argentino. </li>
+            <li>Fila Brasileiro. </li>
+            <li>Tosa Inu, Akita Inu y sus cruces. </li>
+        </ul>
+
+    </div>
+{% endblock %}

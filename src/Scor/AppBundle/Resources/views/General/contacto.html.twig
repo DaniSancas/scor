@@ -1,0 +1,45 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block description_metatag %}
+    Contacta con nosotros para cualquier consulta vía email o telefónica. Visita nuestras oficinas en la calle Santutxu nº 7 para obtener o renovar licencias.
+{% endblock %}
+
+{% block keywords_metatag %}
+    Contacto, localización, Santutxu 7, psicotécnico, centro médico, consulta, oficina, cómo llegar, mapa, renovar, obtener, licencia, permiso, carnet
+{% endblock %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+
+<div class="float-left container-half">
+    <h2>Localización</h2>
+
+    <p class="texto-gris-oscuro margen-peque">
+        Santutxu, 7 - 2ºB (48004) Bilbao<br />
+        {{ contacto_telefono }} - {{ contacto_movil }} / {{ contacto_email }}
+    </p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5811.700136244969!2d-2.916305!3d43.254564!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x96ff0f93a212a20c!2sPsicot%C3%A9cnicos+%22+S.C.O.R%22.!5e0!3m2!1ses!2ses!4v1401304838544" class="mapa"></iframe>
+</div>
+
+<div class="float-right container-half">
+    <h2>Contacto</h2>
+
+    <p class="texto-gris-oscuro">
+        Para obtener o renovar una licencia/permiso haga click en <a href="{{ path('pedir_cita') }}" class="btn btn-sm btn-success" role="button">pedir cita</a>
+    </p>
+
+    {% form_theme form 'AppBundle:Form:fields_bootstrap_h.html.twig' %}
+
+    <form class="form-horizontal" action="{{path("contacto")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
+        {{ form_widget(form) }}
+        <div class="form-group">
+          <label class="col-lg-3 control-label"></label>
+          <div class="col-lg-9">
+            <button type="submit" class="btn btn-lg btn-success">Enviar</button>
+          </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

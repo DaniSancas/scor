@@ -1,0 +1,90 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block description_metatag %}
+    Formulario para pedir cita previa con {{ scor_psico }} para obtener o renovar cualquier licencia, permiso o carnet vigente.
+{% endblock %}
+
+{% block keywords_metatag %}
+    Pedir cita, cita previa, obtener, renovar, obtención, renovación, licencia, permiso, carnet, conducir, armas, seguridad, animales peligrosos, perros, náutica, marina, grúas
+{% endblock %}
+
+{% block canonical_url %}
+<link rel="canonical" href="{{ "http://" ~ dominio ~ path("pedir_cita")}}" />
+{% endblock %}
+
+{% block title %}Pedir cita{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets filter='?uglifycss' output="css/compiled/datetime-picker.css"
+        'pickdate/css/default.css'
+        'pickdate/css/default.date.css'
+        'pickdate/css/default.time.css' %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?uglifyjs2' output="js/compiled/datetime-picker.js"
+        'pickdate/js/picker.js'
+        'pickdate/js/picker.date.js'
+        'pickdate/js/picker.time.js'
+        'bundles/app/js/picker.custom.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block content %}
+
+<div class="float-left container-dos-tercios">
+    <h2>Pedir cita</h2>
+    <h3>Pedir cita para obtener o renovar permisos o licencias.</h3>
+
+    <p class="texto-gris-oscuro">
+        Si tan solo desea contactar con nosotros para realizar una consulta, diríjase a la sección de <a href="{{ path('contacto') }}" class="btn btn-sm btn-success" role="button">contacto</a>
+    </p>
+
+    {% form_theme form 'AppBundle:Form:fields_bootstrap_h.html.twig' %}
+
+    <form class="form-horizontal no-readonly" action="{{path("pedir_cita")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
+        {{ form_widget(form) }}
+        <div class="form-group">
+            <label class="col-lg-3 control-label"></label>
+            <div class="col-lg-9">
+                <button type="submit" class="btn btn-lg btn-success">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="float-right container-un-tercio text-center">
+    <h2 class="">Horario</h2>
+
+    <p><img src="{{ asset('bundles/app/images/iconos/horario.png') }}" alt="Horario" /></p>
+
+    <p class="texto-gris-oscuro texto-medio-grande">
+        De lunes a viernes, <br />
+        Mañana: 09:30 a 13:00 <br />
+        Tarde: 16:30 a 19:30
+    </p>
+    <p class="texto-gris-oscuro texto-medio-grande">
+        Contacto telefónico: <br />
+        {{ contacto_telefono }} / {{ contacto_movil }}
+    </p>
+</div>
+
+{% endblock %}
+
+{% block documentReady %}
+    $('#{{ form.fecha.vars.id }}').pickadate({
+        today: '',
+        min: [{{ ("tomorrow"|date("Y")) }},{{ ("tomorrow"|date("m"))-1 }},{{ ("tomorrow"|date("d")) }}],
+        max: [{{ ("next month"|date("Y")) }},{{ ("next month"|date("m"))-1 }},{{ ("next month"|date("d")) }}]
+    });
+    $('#{{ form.hora.vars.id }}').pickatime({
+        min: [9,30],
+        max: [19,0],
+        disable: [{
+            from: [13,0], to: [16,0]
+        }]
+    });
+{% endblock documentReady %}
