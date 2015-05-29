@@ -35,7 +35,7 @@
 
 {% block content %}
 
-<div class="float-left container-dos-tercios">
+<div class="col-md-8 margin-bottom-grande">
     <h2>Pedir cita</h2>
     <h3>Pedir cita para obtener o renovar permisos o licencias.</h3>
 
@@ -48,15 +48,15 @@
     <form class="form-horizontal no-readonly" action="{{path("pedir_cita")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
         {{ form_widget(form) }}
         <div class="form-group">
-            <label class="col-lg-3 control-label"></label>
-            <div class="col-lg-9">
+            <label class="col-lg-3 col-sm-4 control-label"></label>
+            <div class="col-lg-9 col-sm-8">
                 <button type="submit" class="btn btn-lg btn-success">Enviar</button>
             </div>
         </div>
     </form>
 </div>
 
-<div class="float-right container-un-tercio text-center">
+<div class="col-md-4 text-center">
     <h2 class="">Horario</h2>
 
     <p><img src="{{ asset('bundles/app/images/iconos/horario.png') }}" alt="Horario" /></p>

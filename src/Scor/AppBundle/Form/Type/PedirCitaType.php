@@ -42,7 +42,7 @@ class PedirCitaType extends AbstractType
                 )
             ))
             ->add('licencias_permisos', 'choice', array(
-                'label' => 'Licencia o permiso',
+                'label' => 'Licencia/permiso',
                 'choices' => Util::getLicenciasYPermisos()
             ))
             ->add('operacion', 'choice', array(
@@ -54,10 +54,16 @@ class PedirCitaType extends AbstractType
                 )
             ))
             ->add('fecha', 'text', array(
-                'trim' => true
+                'trim' => true,
+                'attr' => array(
+                    'placeholder' => 'Especifique una fecha...'
+                )
             ))
             ->add('hora', 'text', array(
-                'trim' => true
+                'trim' => true,
+                'attr' => array(
+                    'placeholder' => 'Especifique una hora...'
+                )
             ))
             ->add('observaciones', 'textarea', array(
                 'required' => false

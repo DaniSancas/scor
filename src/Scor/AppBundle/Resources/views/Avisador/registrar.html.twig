@@ -12,7 +12,7 @@
 
 {% block content %}
 
-    <div class="float-left container-dos-tercios">
+    <div class="col-md-8 margin-bottom-grande">
         <h2>Avisador de caducidad</h2>
         <h4>Introduzca la fecha de caducidad de su licencia y le avisaremos para la renovación.</h4>
 
@@ -21,15 +21,15 @@
         <form class="form-horizontal no-readonly" action="{{path("registrar_caducidad")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
             {{ form_widget(form) }}
             <div class="form-group">
-                <label class="col-lg-3 control-label"></label>
-                <div class="col-lg-9">
+                <label class="col-lg-3 col-sm-4  control-label"></label>
+                <div class="col-lg-9 col-sm-8">
                     <button type="submit" class="btn btn-lg btn-success">Registrar</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="float-right container-un-tercio text-center">
+    <div class="col-md-4 text-center">
         <h2 class="">Alertas vía email</h2>
 
         <p><img src="{{ asset('bundles/app/images/iconos/caducidad.png') }}" alt="Avisador de caducidad" /></p>

@@ -65,11 +65,11 @@ body {
 }
 
 .no-margin-top{
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .no-margin-bottom{
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
 }
 
 .no-padding{
@@ -122,6 +122,7 @@ li.alert-danger{
 
 form textarea {
     resize: vertical;
+    min-height: 130px;
 }
 
 form.no-readonly input.form-control[readonly]{
@@ -323,8 +324,6 @@ fieldset[disabled] .btn-orange.active {
 
 
 
-
-
 /* RESPONSIVE */
 @media (max-width: 419px) {
 
@@ -343,21 +342,8 @@ fieldset[disabled] .btn-orange.active {
         font-size: 100%;
     }
 
-    .container-half{
-        width: 100%;
-    }
-
     ul.errors.col-lg-12{
         padding-bottom: 0;
-    }
-
-    .col-lg-3.force-left {
-        width: inherit;
-        float: left;
-    }
-
-    .float-right.text-center.container-un-tercio{
-        float: inherit;
     }
 
     body {
@@ -380,26 +366,8 @@ fieldset[disabled] .btn-orange.active {
     }
 }
 @media (min-width: 768px)  {
-    .container-half{
-        width: 100%;
-    }
-
-    .col-lg-9 {
-        width: 75%;
-        float: right;
-    }
-
-    .col-lg-3 {
-        width: 25%;
-        float: left;
-    }
-
     ul.errors.col-lg-12{
         padding-bottom: 7px;
-    }
-
-    .float-right.text-center.container-un-tercio{
-        float: inherit;
     }
 
     body {
@@ -427,37 +395,6 @@ fieldset[disabled] .btn-orange.active {
 }
 
 @media (min-width: 992px) {
-    .container-half{
-        width: 450px;
-    }
-
-    .col-lg-9 {
-        width: inherit;
-        float: inherit;
-    }
-
-    .col-lg-3 {
-        width: inherit;
-        float: inherit;
-    }
-
-    .col-sm-offset-3{
-        margin-left: inherit;
-    }
-
-    .col-lg-3.force-left {
-        width: inherit;
-        float: left;
-    }
-    
-    ul.errors.col-lg-12{
-        padding-bottom: 0;
-    }
-
-    .float-right.text-center.container-un-tercio{
-        float: inherit;
-    }
-
     #header-wrapper{
         font-size: 100%;
     }
@@ -470,45 +407,6 @@ fieldset[disabled] .btn-orange.active {
 }
 
 @media (min-width: 1200px) {
-    .container-half{
-        width: 550px;
-    }
-
-    .container-dos-tercios{
-        width: 755px;
-    }
-
-    .container-un-tercio{
-        width: 385px;
-    }
-
-    .col-lg-9 {
-        width: 75%;
-        float: right;
-    }
-
-    .col-lg-3 {
-        width: 25%;
-        float: left;
-    }
-
-    .col-sm-offset-3{
-        margin-left: 25%;
-    }
-
-    .col-lg-3.force-left {
-        width: 25%;
-        float: left;
-    }
-
-    ul.errors.col-lg-12{
-        padding-bottom: 7px;
-    }
-
-    .float-right.text-center.container-un-tercio{
-        float: right;
-    }
-
     .slogan-vertical-responsive {
         padding: 185px 0 0 0;
         float: right;
