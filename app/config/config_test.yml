@@ -17,8 +17,8 @@ swiftmailer:
 
 doctrine:
     dbal:
-        host:     "localhost"
-        dbname:   "scor_test"
-        user:     "test"
-        password: "test"
+        host:     "%database_test_host%"
+        dbname:   "%database_test_name%"
+        user:     "%database_test_user%"
+        password: "%database_test_password%"
         charset:  UTF8
