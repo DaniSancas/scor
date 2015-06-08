@@ -5,6 +5,8 @@
 # to each configured DirectoryIndex file (e.g. index.php, index.html, index.pl).
 DirectoryIndex app.php
 
+AddHandler application/x-httpd-php56 php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 

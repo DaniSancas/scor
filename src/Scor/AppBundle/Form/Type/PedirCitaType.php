@@ -5,7 +5,7 @@ namespace Scor\AppBundle\Form\Type;
 use Scor\AppBundle\Library\Util;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -15,6 +15,10 @@ use Symfony\Component\Validator\Constraints\Regex;
 class PedirCitaType extends AbstractType
 {
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -74,10 +78,18 @@ class PedirCitaType extends AbstractType
                     'class' => 'no-asterisco'
                 )
             ))
+            ->add('enviar', 'submit', array(
+                'attr' => array(
+                    'class' => 'btn btn-lg btn-success'
+                )
+            ))
         ;
     }
-  
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
     {
         $collectionConstraint = new Collection(array(
             'nombre' => array(
@@ -129,6 +141,9 @@ class PedirCitaType extends AbstractType
         ));
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'pedir_cita';

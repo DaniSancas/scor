@@ -72,6 +72,17 @@
 {% endspaceless %}
 {% endblock form_row %}
 
+{% block submit_widget %}
+    {% set type = type|default('submit') %}
+    {% spaceless %}
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-sm-offset-4 col-lg-9 col-sm-8">
+                {{ block('button_widget') }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock submit_widget %}
+
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}

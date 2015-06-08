@@ -25,9 +25,9 @@
 {% endblock %}
 
 {% block default_stylesheets %}
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     {% stylesheets filter='?uglifycss' output="css/compiled/main.css"
-        'bootstrap/css/bootstrap.min.css'
-        'bootstrap/css/bootstrap-theme.min.css'
         'bundles/app/css/custom-bootstrap.css'
         'bundles/app/css/marketing-bootstrap.css' %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
@@ -36,11 +36,33 @@
 {% endblock %}
   
 {% block default_javascripts %}
-    {% javascripts filter='?uglifyjs2' output="js/compiled/main.js"
-        '@AppBundle/Resources/public/js/jquery-min.js'
-        'bootstrap/js/bootstrap.min.js' %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {# Fallback Jquery #}
+    <script>window.jQuery || document.write('<script src="{{ asset('bundles/app/js/jquery.min.js') }}"><\/script>')</script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    {# Fallback Bootstrap JS #}
+    <script>if(typeof($.fn.modal) === 'undefined') {document.write('<script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"><\/script>')}</script>
+
+    {# Fallback Bootstrap CSS #}
+    <script>
+        {# IMPORTANTE: Cuidado con el orden: .prepend() coloca al principio #}
+        $(document).ready(function() {
+
+            {# Bootstrap theme #}
+            var btnColor = $('.btn-success').css('backgroundColor');
+            if(btnColor != 'rgb(92, 184, 92)') {
+                $("head").prepend('<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">');
+            }
+
+            {# Bootstrap básico #}
+            var bodyColor = $('body').css('color');
+            if(bodyColor != 'rgb(51, 51, 51)') {
+                $("head").prepend('<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">');
+            }
+        });
+    </script>
     {% block javascripts %}{% endblock %}
 {% endblock %}
 

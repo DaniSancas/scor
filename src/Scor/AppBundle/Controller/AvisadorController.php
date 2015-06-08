@@ -21,19 +21,20 @@ class AvisadorController extends Controller
     /**
      * Acción que muestra la página de inserción de licencias para el aviso de su caducidad.
      *
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @Route("/registrar", name="registrar_caducidad")
      * @Method(methods={"GET", "POST"})
      * @Template()
      */
-    public function registrarAction()
+    public function registrarAction(Request $request)
     {
         $form = $this->createForm(new CaducidadType(), new Caducidad());
 
-        $request = $this->get('request');
-
         if ($request->isMethod('POST'))
         {
-            $form->submit($request);
+            $form->handleRequest($request);
 
             if ($form->isValid())
             {
@@ -56,6 +57,9 @@ class AvisadorController extends Controller
      * Acción llamada desde un enlace desde el email de aviso, para aquellos que no quieran seguir recibiendo alertas.
      *
      * Si la id y el email enviados coinciden, se actualizará la caducidad para que no mande más avisos.
+     *
+     * @param Request $request
+     * @return array
      *
      * @Template()
      * @Route("/unsuscribe", name="desactivar_caducidad")

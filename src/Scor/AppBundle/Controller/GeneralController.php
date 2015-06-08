@@ -2,15 +2,15 @@
 
 namespace Scor\AppBundle\Controller;
 
+use Scor\AppBundle\Form\Type\ContactoType;
 use Scor\AppBundle\Form\Type\PedirCitaType;
 use Scor\AppBundle\Library\Util;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-
-use Scor\AppBundle\Form\Type\ContactoType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class GeneralController
@@ -37,15 +37,16 @@ class GeneralController extends Controller
      *
      * Si se especifica en la URL qué licencia o permiso queremos seleccionar por defecto, permitimos su ejecución.
      *
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @Cache(expires="-1 days", maxage="0", smaxage="0", public="true")
      * @Route("/pedir-cita", name="pedir_cita")
      * @Method(methods={"GET", "POST"})
      * @Template()
      */
-    public function pedirCitaAction()
+    public function pedirCitaAction(Request $request)
     {
-        $request = $this->get('request');
-
         $licenciaPermiso = $request->get('licencias_permisos');
 
         $arrayParams = (array_key_exists($licenciaPermiso, Util::getLicenciasYPermisos())) ? array('licencias_permisos' => $licenciaPermiso) : null;
@@ -54,7 +55,7 @@ class GeneralController extends Controller
 
         if ($request->isMethod('POST'))
         {
-            $form->submit($request);
+            $form->handleRequest($request);
 
             if ($form->isValid())
             {
@@ -115,20 +116,22 @@ class GeneralController extends Controller
     /**
      * Acción que muestra y procesa el formulario de contacto.
      *
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     *
      * @Cache(expires="-1 days", maxage="0", smaxage="0", public="true")
      * @Route("/contacto", name="contacto")
      * @Method(methods={"GET", "POST"})
      * @Template()
+     *
      */
-    public function contactoAction()
+    public function contactoAction(Request $request)
     {
         $form = $this->createForm(new ContactoType());
 
-        $request = $this->get('request');
-
         if ($request->isMethod('POST'))
         {
-            $form->submit($request);
+            $form->handleRequest($request);
 
             if ($form->isValid())
             {

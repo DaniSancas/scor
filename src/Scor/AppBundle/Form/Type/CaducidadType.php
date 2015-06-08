@@ -5,7 +5,7 @@ namespace Scor\AppBundle\Form\Type;
 use Scor\AppBundle\Library\Util;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Scor\AppBundle\Form\DataTransformer\DateToSpanishDateTransformer;
 
 class CaducidadType extends AbstractType
@@ -46,13 +46,18 @@ class CaducidadType extends AbstractType
                     'placeholder' => 'Especifique su email...'
                 )
             ))
+            ->add('registrar', 'submit', array(
+                'attr' => array(
+                    'class' => 'btn btn-lg btn-success'
+                )
+            ))
         ;
     }
     
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'Scor\AppBundle\Entity\Caducidad'

@@ -47,12 +47,6 @@
 
     <form class="form-horizontal no-readonly" action="{{path("pedir_cita")}}" method="post" {{ app.environment == 'dev' ? 'novalidate' : '' }}>
         {{ form_widget(form) }}
-        <div class="form-group">
-            <label class="col-lg-3 col-sm-4 control-label"></label>
-            <div class="col-lg-9 col-sm-8">
-                <button type="submit" class="btn btn-lg btn-success">Enviar</button>
-            </div>
-        </div>
     </form>
 </div>
 
