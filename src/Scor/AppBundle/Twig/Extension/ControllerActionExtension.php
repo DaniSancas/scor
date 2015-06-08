@@ -2,78 +2,112 @@
 
 namespace Scor\AppBundle\Twig\Extension;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Extensión de Twig que permite obtener el nombre del Controller y Action en una vista de Twig.
- * 
+ *
  * El nombre del Controller/Action será devuelto en minúsculas. P.e: 'default' o 'index'
- * 
+ *
  */
 class ControllerActionExtension extends \Twig_Extension
 {
     /**
-         * @var Request
-         */
-    protected $request;
+     * @var RequestStack
+     */
+    protected $requestStack;
 
-   /**
-        * @var \Twig_Environment
-        */
+    /**
+     * @var \Twig_Environment
+     */
     protected $environment;
-    
-    public function setRequest(Request $request = null)
+
+    /**
+     * Constructor
+     *
+     * @param RequestStack $requestStack
+     */
+    public function __construct(RequestStack $requestStack)
     {
-        $this->request = $request;
+        $this->requestStack = $requestStack;
     }
 
+    /**
+     * Get Request
+     *
+     * @return null|\Symfony\Component\HttpFoundation\Request
+     */
+    private function getRequest()
+    {
+        return $this->requestStack->getCurrentRequest();
+    }
+
+    /**
+     * Init Twig Environment
+     *
+     * @param \Twig_Environment $environment
+     */
     public function initRuntime(\Twig_Environment $environment)
     {
         $this->environment = $environment;
     }
 
+    /**
+     * Return declared functions
+     *
+     * @return array
+     */
     public function getFunctions()
     {
         return array(
-            'get_controller_name' => new \Twig_Function_Method($this, 'getControllerName'),
-            'get_action_name' => new \Twig_Function_Method($this, 'getActionName'),
+            'getControllerName' => new \Twig_Function_Method($this, 'getControllerName'),
+            'getActionName' => new \Twig_Function_Method($this, 'getActionName'),
         );
     }
 
     /**
-        * Get current controller name
-        */
+     * Get current controller name
+     */
     public function getControllerName()
     {
-        if(null !== $this->request)
+        $request = $this->getRequest();
+
+        if(null !== $request)
         {
             $pattern = "#Controller\\\([a-zA-Z]*)Controller#";
             $matches = array();
-            preg_match($pattern, $this->request->get('_controller'), $matches);
+            preg_match($pattern, $request->get('_controller'), $matches);
 
             return (isset($matches[1])) ? strtolower($matches[1]) : '';
         }
-        
+
     }
 
     /**
-        * Get current action name
-        */
+     * Get current action name
+     */
     public function getActionName()
     {
-        if(null !== $this->request)
+        $request = $this->getRequest();
+
+        if(null !== $request)
         {
             $pattern = "#::([a-zA-Z]*)Action#";
             $matches = array();
-            preg_match($pattern, $this->request->get('_controller'), $matches);
+            preg_match($pattern, $request->get('_controller'), $matches);
 
             return (isset($matches[1])) ? strtolower($matches[1]) : '';
         }
     }
 
+    /**
+     * Get Twig Extension Name
+     *
+     * @return string
+     */
     public function getName()
     {
-        return 'amcb_controller_action_twig_extension';
+        return 'scor_controller_action_twig_extension';
     }
 }
 

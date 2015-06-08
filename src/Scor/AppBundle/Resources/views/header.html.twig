@@ -1,3 +1,6 @@
+{% set controllerName = getControllerName() %}
+{% set actionName = getActionName() %}
+
 <div class="navbar-wrapper">
     <div class="container">
 
@@ -14,8 +17,8 @@
                 </div>
                 <div id="header-wrapper" class="navbar-collapse collapse">
                     <ul id="header" class="nav navbar-nav">
-                        <li class="{% if get_action_name() == 'index' %}active{% endif %}"><a href="{{ path('homepage') }}">Inicio</a></li>
-                        <li class="dropdown{% if get_controller_name() == 'licencia' %} active{% endif %}">
+                        <li class="{% if actionName == 'index' %}active{% endif %}"><a href="{{ path('homepage') }}">Inicio</a></li>
+                        <li class="dropdown{% if controllerName == 'licencia' %} active{% endif %}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Licencias y permisos <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('conducir') }}">Carnet de conducir</a></li>
@@ -28,9 +31,9 @@
                                 <li><a href="{{ path('gruas') }}">Grúas</a></li>
                             </ul>
                         </li>
-                        <li class="{% if get_action_name() == 'pedirCita' %}active{% endif %}"><a href="{{ path('pedir_cita') }}">Pedir cita</a></li>
-                        <li class="{% if get_action_name() == 'registrar' and get_controller_name() == 'avisador' %}active{% endif %}"><a href="{{ path('registrar_caducidad') }}">Avisador de caducidad</a></li>
-                        <li class="{% if get_action_name() == 'contacto' %}active{% endif %}"><a href="{{ path('contacto') }}">Localización y contacto</a></li>
+                        <li class="{% if actionName == 'pedircita' %}active{% endif %}"><a href="{{ path('pedir_cita') }}">Pedir cita</a></li>
+                        <li class="{% if actionName == 'registrar' and controllerName == 'avisador' %}active{% endif %}"><a href="{{ path('registrar_caducidad') }}">Avisador de caducidad</a></li>
+                        <li class="{% if actionName == 'contacto' %}active{% endif %}"><a href="{{ path('contacto') }}">Localización y contacto</a></li>
                     </ul>
                 </div>
             </div>

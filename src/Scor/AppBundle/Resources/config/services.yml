@@ -4,7 +4,6 @@ parameters:
 services:
     scor.twig.controller_action_extension:
         class: Scor\AppBundle\Twig\Extension\ControllerActionExtension
-        calls:
-            - [setRequest, ["@?request="]]
+        arguments: ["@request_stack"]
         tags:
             - { name: twig.extension }

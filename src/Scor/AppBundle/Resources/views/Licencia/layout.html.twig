@@ -1,5 +1,7 @@
 {% extends "AppBundle::layout.html.twig" %}
 
+{% set actionName = getActionName() %}
+
 {% block title %}
     {% if block('title_preffix') %}
         {% spaceless %}
@@ -13,22 +15,22 @@
     <div class="licencia-submenu">
         <div class="btn-group">
             <a href="{{ path('conducir') }}" class="btn btn-default" title="Carnet de conducir">
-                <span class="img-background-60 img-conducir {% if get_action_name() == 'conducir' %}active{% endif %}"></span>
+                <span class="img-background-60 img-conducir {% if actionName == 'conducir' %}active{% endif %}"></span>
             </a>
             <a href="{{ path('armas') }}" class="btn btn-default" title="Permiso de armas">
-                <span class="img-background-60 img-armas {% if get_action_name() == 'armas' %}active{% endif %}"></span>
+                <span class="img-background-60 img-armas {% if actionName == 'armas' %}active{% endif %}"></span>
             </a>
             <a href="{{ path('seguridad') }}" class="btn btn-default" title="Seguridad privada">
-                <span class="img-background-60 img-seguridad {% if get_action_name() == 'seguridad' %}active{% endif %}"></span>
+                <span class="img-background-60 img-seguridad {% if actionName == 'seguridad' %}active{% endif %}"></span>
             </a>
             <a href="{{ path('animales') }}" class="btn btn-default" title="Animales potencialmente peligrosos">
-                <span class="img-background-60 img-animales {% if get_action_name() == 'animales' %}active{% endif %}"></span>
+                <span class="img-background-60 img-animales {% if actionName == 'animales' %}active{% endif %}"></span>
             </a>
             <a href="{{ path('nautica') }}" class="btn btn-default" title="Náutica">
-                <span class="img-background-60 img-nautica {% if get_action_name() == 'nautica' %}active{% endif %}"></span>
+                <span class="img-background-60 img-nautica {% if actionName == 'nautica' %}active{% endif %}"></span>
             </a>
             <a href="{{ path('gruas') }}" class="btn btn-default" title="Grúas">
-                <span class="img-background-60 img-gruas {% if get_action_name() == 'gruas' %}active{% endif %}"></span>
+                <span class="img-background-60 img-gruas {% if actionName == 'gruas' %}active{% endif %}"></span>
             </a>
         </div>
     </div>
