@@ -27,7 +27,7 @@ class ControllerActionExtension extends \Twig_Extension
      *
      * @param RequestStack $requestStack
      */
-    public function __construct(RequestStack $requestStack)
+    public function __construct(RequestStack $requestStack = null)
     {
         $this->requestStack = $requestStack;
     }
@@ -81,6 +81,7 @@ class ControllerActionExtension extends \Twig_Extension
             return (isset($matches[1])) ? strtolower($matches[1]) : '';
         }
 
+        return null;
     }
 
     /**
@@ -98,6 +99,8 @@ class ControllerActionExtension extends \Twig_Extension
 
             return (isset($matches[1])) ? strtolower($matches[1]) : '';
         }
+
+        return null;
     }
 
     /**
