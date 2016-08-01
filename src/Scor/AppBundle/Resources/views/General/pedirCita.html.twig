@@ -15,7 +15,7 @@
 {% block title %}Pedir cita{% endblock %}
 
 {% block stylesheets %}
-    {% stylesheets filter='?uglifycss' output="css/compiled/datetime-picker.css"
+    {% stylesheets filter='?scssphp' output="css/datetime-picker.css"
         'pickdate/css/default.css'
         'pickdate/css/default.date.css'
         'pickdate/css/default.time.css' %}
@@ -24,7 +24,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    {% javascripts filter='?uglifyjs2' output="js/compiled/datetime-picker.js"
+    {% javascripts filter='?jsqueeze' output="js/datetime-picker.js"
         'pickdate/js/picker.js'
         'pickdate/js/picker.date.js'
         'pickdate/js/picker.time.js'
@@ -72,7 +72,10 @@
     $('#{{ form.fecha.vars.id }}').pickadate({
         today: '',
         min: [{{ ("tomorrow"|date("Y")) }},{{ ("tomorrow"|date("m"))-1 }},{{ ("tomorrow"|date("d")) }}],
-        max: [{{ ("next month"|date("Y")) }},{{ ("next month"|date("m"))-1 }},{{ ("next month"|date("d")) }}]
+        max: [{{ ("next month"|date("Y")) }},{{ ("next month"|date("m"))-1 }},{{ ("next month"|date("d")) }}],
+        disable: [{
+        from: [{{ ("today"|date("Y")) }}, 7, 1], to: [{{ ("today"|date("Y")) }}, 7, 31]
+        }]
     });
     $('#{{ form.hora.vars.id }}').pickatime({
         min: [9,30],

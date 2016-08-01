@@ -18,10 +18,12 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "leafo/scssphp": "^0.6.3",
+        "patchwork/jsqueeze": "~1.0"
     },
     "require-dev": {
-        "andres-montanez/magallanes": "~1.0.3",
+        "andres-montanez/magallanes": "1.0.3",
         "phpunit/phpunit": "~3.7",
         "phpunit/php-code-coverage": "~1.2",
         "phpunit/php-token-stream": "~1.2",

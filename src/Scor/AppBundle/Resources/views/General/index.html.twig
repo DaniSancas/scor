@@ -2,7 +2,7 @@
 
 
 {% block stylesheets %}
-    {% stylesheets filter='?uglifycss' output="css/compiled/effects.css"
+    {% stylesheets filter='?scssphp' output="css/effects.css"
     'bundles/app/css/flexslider.css'
     'bundles/app/css/galeria.css' %}
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block javascripts %}
-    {% javascripts filter='?uglifyjs2' output="js/compiled/effects.js"
+    {% javascripts filter='?jsqueeze' output="js/effects.js"
     'bundles/app/js/lightbox-min.js'
     'bundles/app/js/lightbox.options.js'
     'bundles/app/js/jquery.flexslider-min.js' %}

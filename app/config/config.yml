@@ -17,10 +17,7 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
-    session:
-        name: scor_psico_cookie
-        handler_id: session.handler.native_file
-        save_path: "%kernel.root_dir%/sessions"
+    session:         ~
     fragments:       ~
     http_method_override: true
 
@@ -39,14 +36,12 @@ twig:
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
-    use_controller: true
-    bundles:        [ AppBundle ]
-    node: /usr/bin/nodejs
+    use_controller: false
+    #bundles:        [ ]
     filters:
-        uglifyjs2:
-            bin: /usr/local/bin/uglifyjs
-        uglifycss:
-            bin: /usr/local/bin/uglifycss
+            scssphp:
+                formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+            jsqueeze: ~
 
 # Doctrine Configuration
 doctrine:

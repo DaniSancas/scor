@@ -27,7 +27,7 @@
 {% block default_stylesheets %}
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    {% stylesheets filter='?uglifycss' output="css/compiled/main.css"
+    {% stylesheets filter='?scssphp' output="css/main.css"
         'bundles/app/css/custom-bootstrap.css'
         'bundles/app/css/marketing-bootstrap.css' %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
